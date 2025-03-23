@@ -31,9 +31,10 @@ You can tweak the behaviour of this library with the following functions (you ca
 * `.setInfoPanelY(n)` to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
 * `.setInfoPanelKey('u')` to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
 * `.disableKeyPress()` to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work by default:
-  * `0` press once to reset timer, press multiple times to set the BPM to your 'press'-timing
-  * `-` lower bpm
-  * `+` raise bpm
+
+    * `0` press once to reset timer, press multiple times to set the BPM to your 'press'-timing
+    * `-` lower bpm
+    * `+` raise bpm
 
 
 ## Examples
@@ -42,18 +43,18 @@ You can find all these examples in `Processing -> File - Examples - Contributed 
 <table width="100%">
   <tr>
     <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/animatedSVG/animatedSVG.pde">animatedSVG</a><br><img src="./example-animatedsvg.gif" width="100%" alt="screenshot for example animatedSVG" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/VJMotion/beatcount/beatcount.pde">beatCount</a><br><img src="./example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/VJMotion/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="./example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/beatcount/beatcount.pde">beatCount</a><br><img src="./example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="./example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
   </tr>
    <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/VJMotion/delay/delay.pde">delay</a><br><img src="./example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/VJMotion/metronome/metronome.pde">metronome</a><br><img src="./example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/VJMotion/randomColor/randomColor.pde">randomcolor</a><br><img src="./example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/delay/delay.pde">delay</a><br><img src="./example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/metronome/metronome.pde">metronome</a><br><img src="./example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/randomColor/randomColor.pde">randomcolor</a><br><img src="./example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
   </tr>
   <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/VJMotion/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="./example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/VJMotion/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="./example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/VJMotion/adsr/adsr.pde">adsr</a><br><img src="./example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="./example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="./example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/examples/BPM/adsr/adsr.pde">adsr</a><br><img src="./example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
   </tr>
  
  </table>
