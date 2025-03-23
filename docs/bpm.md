@@ -2,12 +2,6 @@
 
 The BeatsPerMinute class provides the following main functions:
 
-* test1
-* test2
-
-- test1
-- test2
-
 * `linear()` function that returns a normalized linear progress value from 0 to 1 for any given amount of beats, or with a given delay:
   * `linear()` returns progress in 1 beat
   * `linear(4)` returns progress in 4 beats
@@ -22,12 +16,14 @@ The BeatsPerMinute class provides the following main functions:
 * `getSurfaceTitle()` show information on BPM, beatCount and frameRate in your surface title. To be used in your main sketch like `surface.setTitle(bpm.getSurfaceTitle());`
 
 A more advanced progression function `adsr()` that uses attack, decay, sustain and release options to control the (linear) progression:
+
 * `adsr(0.2)` function that uses an attack of 20% to get from 0 to 1 and stay at 1 for the remainder of the beat
 * `adsr(0.2, 0.4, 0.5, 0.1)` function that uses an attack of 20% to get from 0 to 1, a decay of 40% to get to 0.5, stay for 30% of the time at that 0.5 and uses a release of 10% to get from 0.5 to 0.
 * `adsr(0.2, 0.4, 0.5, 0.1, 2)` similar as the previous one, but with an additional parameter for duration in beats. In this case to animate over 2 beats.
 * `adsr(0.2, 0.4, 0.5, 0.1, 2, 1)` similar as the previous one, but with an additional parameter for delay in beats. In this case delay of 1 beat.
 
 You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your bpm object for clarity):
+
 * `.setBPM(120)` to change the amount of beats per minute for all calculations.
 * `.showInfoPanel()` to show the infopanel.
 * `.setInfoPanelY(n)` to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
@@ -44,19 +40,19 @@ You can find all these examples in `Processing -> File - Examples - Contributed 
 <table width="100%">
 
   <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/animatedSVG/animatedSVG.pde">animatedSVG</a><br><img src="assets/example-animatedsvg.gif" width="100%" alt="screenshot for example animatedSVG" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/beatcount/beatcount.pde">beatCount</a><br><img src="assets/example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="assets/example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/animatedSVG/animatedSVG.pde">animatedSVG</a><br><img src="./example-animatedsvg.gif" width="100%" alt="screenshot for example animatedSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/beatcount/beatcount.pde">beatCount</a><br><img src="./example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="./example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
   </tr>
    <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/delay/delay.pde">delay</a><br><img src="assets/example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/metronome/metronome.pde">metronome</a><br><img src="assets/example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomColor/randomColor.pde">randomcolor</a><br><img src="assets/example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/delay/delay.pde">delay</a><br><img src="./example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/metronome/metronome.pde">metronome</a><br><img src="./example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomColor/randomColor.pde">randomcolor</a><br><img src="./example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
   </tr>
   <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="assets/example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="assets/example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/adsr/adsr.pde">adsr</a><br><img src="assets/example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="./example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="./example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/adsr/adsr.pde">adsr</a><br><img src="./example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
   </tr>
  
  </table>

@@ -3,10 +3,12 @@ This FrequencyAnalyzer class is used at the Maastricht Institute of Arts exposit
 Students create sketches that react in realtime to audio input (line-in, audio file or microphone).
 
  This library adds functionality like:
+
  - easily switch between input modes (audio file, microphone, line-in)
  - toggle mute (audio file playing) or monitoring (microphone or line-in)
  
  todo:
+
  - return raw or normalized values of specific frequency bands
  - reset the max value that is used for mapping normalized values of frequency amplitudes. Can be set to an interval.
  
@@ -62,6 +64,7 @@ todo:
 
 
 You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your frequencyanalyzer object for clarity):
+
 * `.addMinim(minim)` mandatory to add the global minim object to the class.
 * `.setFile("example.mp3")` to set the file for the audioplayer. Defaults to "https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3"
 * `.setAudioInputMode(AudioInputMode.AUDIO_FILE)` to set the input mode to AudioInputMode.AUDIO_FILE. You can also set it to AudioInputMode.LINE_IN or AudioInputMode.MICROPHONE. Defaults to AudioInputMode.MICROPHONE. 
@@ -86,7 +89,7 @@ You can tweak the behaviour of this library with the following functions (you ca
 -->  
 
 ## Examples
-You can find all these examples in `Processing -> File - Examples - Contributed Libraries - BPM timings - FrequencyAnalyzer`.
+You can find all these examples in `Processing -> File - Examples - Contributed Libraries - VJMotion - FrequencyAnalyzer`.
 
 <table width="100%">
   <tr>

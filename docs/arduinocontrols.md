@@ -3,6 +3,7 @@ This ArduinoControls class is used at the Maastricht Institute of Arts expositio
 Students build their own Arduino remote controller with 3 potentiometers, 3 pushbuttons and 3 LEDs.
 
  This library simplifies the use for these controls. It adds functionality like:
+
  - executing single commands when longpressing pushbuttons;
  - multiple pushbuttons being pressed
  - smooth analog potmeter values, reducing 'jumping' values
@@ -50,6 +51,7 @@ void draw() {
 
 
 The ArduinoControls class provides the following main functions:
+
 * `setLEDToOn(0)` function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses `255`, else `Arduino.High`.
 * `setLEDToOff(2)` function that turns off the LED with index 2.
 * `setLED(0,200)` function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.
@@ -59,6 +61,7 @@ The ArduinoControls class provides the following main functions:
 * `getPotentiometer(0, 0.5)` functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.
 
 You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):
+
 * `.addArduino(arduino)` mandatory to add the global arduino object to the class. If you omit it, the keypresses associated with all controls will be enabled.
 * `.addLED(9)` to add an LED to the class at digital port 9.
 * `.addLED(10, LEDMode.PWM)` to add an LED to the class at digital port 10 as a PWM connected LED. The LEDMode argument is optional (default is `LEDMode.DIGITAL`).
