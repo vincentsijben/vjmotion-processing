@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#processing-library-template" class="md-skip">
+        <a href="#vjmotion-library-for-processing" class="md-skip">
           Skip to content
         </a>
       
@@ -209,18 +209,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="index.html" class="md-nav__link md-nav__link--active">
         
   
@@ -231,43 +219,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributors
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -301,11 +252,11 @@
   
   
     <li class="md-nav__item">
-      <a href="develop.md" class="md-nav__link">
+      <a href="bpm.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Develop
+    BPM
     
   </span>
   
@@ -322,11 +273,11 @@
   
   
     <li class="md-nav__item">
-      <a href="release.md" class="md-nav__link">
+      <a href="arduinocontrols.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Release
+    Arduino Controls
     
   </span>
   
@@ -343,11 +294,32 @@
   
   
     <li class="md-nav__item">
-      <a href="troubleshooting.md" class="md-nav__link">
+      <a href="frequencyanalyzer.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Troubleshooting
+    Frequency Analyzer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contribute.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contribute
     
   </span>
   
@@ -377,32 +349,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributors
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -417,42 +363,18 @@
 
 
 
-<h1 id="processing-library-template">Processing Library Template</h1>
+<h1 id="vjmotion-library-for-processing">VJMotion library for Processing</h1>
 <p>The Processing Library Template is a template to help developers of Processing libraries to develop and release.
 It can be found on Github at <a href="https://github.com/processing/processing-library-template">https://github.com/processing/processing-library-template</a>.</p>
-<p><img alt="example sketch output" src="example_sketch_output.png" /></p>
+<p><img alt="example sketch output" src="./assets/example-delay.gif" /></p>
 <p>This documentation provides information on</p>
 <ol>
 <li><a href="getting-started.html">Getting started</a></li>
-<li><a href="develop">The development process</a></li>
-<li><a href="release">Releasing your library</a></li>
-<li><a href="troubleshooting.md">Troubleshooting</a></li>
+<li><a href="bpm.html">BPM functions</a></li>
+<li><a href="arduinocontrols.html">Arduino Controls</a></li>
+<li><a href="frequencyanalyzer.html">Frequency Analyzer</a></li>
+<li><a href="contribute.html">Contribute</a></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This template is based on Gradle. If you are looking for the old Ant-based template, see processing/processing-library-template-ant</p>
-</div>
-<h2 id="references">References</h2>
-<p>Existing references for developing libraries for Processing can be found on the following Github wiki pages:</p>
-<ul>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Basics">https://github.com/processing/processing4/wiki/Library-Basics</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Guidelines">https://github.com/processing/processing4/wiki/Library-Guidelines</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Overview">https://github.com/processing/processing4/wiki/Library-Overview</a></li>
-</ul>
-<h2 id="contributors">Contributors</h2>
-<p>This template was created as part of the 2024 New Beginnings (pr05) Grant from the
-<a href="https://github.com/processing">Processing Foundation</a>, to simplify the
-workflows for libraries, tools, and modes, mentored by <a href="https://github.com/stefterv">@Stefterv</a>.</p>
-<p>It is based on and inspired by a number of Processing library templates, including:</p>
-<ul>
-<li><a href="https://github.com/processing/processing-library-template-gradle">https://github.com/processing/processing-library-template-gradle</a></li>
-<li><a href="https://github.com/enkatsu/processing-library-template-gradle">https://github.com/enkatsu/processing-library-template-gradle</a></li>
-<li><a href="https://github.com/hamoid/processing-library-template/">https://github.com/hamoid/processing-library-template/</a></li>
-</ul>
-<p>I wish to thank the developers of these repositories, who generously provided
-guidance and time. This template has been developed in collaboration with
-<a href="https://github.com/enkatsu">@enkatsu</a>.</p>
-<p>The example library was developed by Stig Møller Hansen (<a href="https://github.com/stixan">@stixan</a>).</p>
 
 
 

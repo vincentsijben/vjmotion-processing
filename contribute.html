@@ -11,6 +11,8 @@
         <link rel="canonical" href="https://processing.github.io/processing-library-template/contribute.html">
       
       
+        <link rel="prev" href="frequencyanalyzer.html">
+      
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -240,11 +242,11 @@
   
   
     <li class="md-nav__item">
-      <a href="develop.md" class="md-nav__link">
+      <a href="bpm.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Develop
+    BPM
     
   </span>
   
@@ -261,11 +263,11 @@
   
   
     <li class="md-nav__item">
-      <a href="release.md" class="md-nav__link">
+      <a href="arduinocontrols.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Release
+    Arduino Controls
     
   </span>
   
@@ -282,16 +284,120 @@
   
   
     <li class="md-nav__item">
-      <a href="troubleshooting.md" class="md-nav__link">
+      <a href="frequencyanalyzer.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Troubleshooting
+    Frequency Analyzer
     
   </span>
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Contribute
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="contribute.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Contribute
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#personal-notes-for-the-previous-ant-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personal notes for the previous "Ant" approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Personal notes for the previous &#34;Ant&#34; approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-test-and-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update, test and release
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-own-processing-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your own Processing Library
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -323,18 +429,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#personal-notes-for-the-previous-ant-approach" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Personal notes for the previous "Ant" approach
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Personal notes for the previous &#34;Ant&#34; approach">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-test-and-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update, test and release
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#contributors" class="md-nav__link">
+  <a href="#create-your-own-processing-library" class="md-nav__link">
     <span class="md-ellipsis">
-      Contributors
+      Create your own Processing Library
     </span>
   </a>
   
@@ -357,31 +487,185 @@
 
 
 <h1 id="contribute">Contribute</h1>
+<p>This library was based on the official <a href="https://github.com/processing/processing-library-template">Processing Library Template</a> which is based on Gradle. The previous version (called BPM_Timings) was based on an older Ant Template.</p>
+<p>I invite you to contribute to this library in all means. Please do send bug reports or give any usable feedback!</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This template is based on Gradle. </p>
+<p>I changed several things from the original template, but sdid send them as Pull Request to the official repo. In the future, these additions could already be inside the offical repo.</p>
 </div>
-<h2 id="references">References</h2>
-<p>Existing references for developing libraries for Processing can be found on the following Github wiki pages:</p>
+<h2 id="personal-notes-for-the-previous-ant-approach">Personal notes for the previous "Ant" approach</h2>
+<p>I've copied <code>library.properties</code> to the root and called it <code>library.properties.example</code> so I could see the original comments for the file. In <code>resources\library.properties</code> I've removed all comments, so the generated <code>distribution\...\.txt</code> file is clean and simple.</p>
+<h3 id="update-test-and-release">Update, test and release</h3>
 <ul>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Basics">https://github.com/processing/processing4/wiki/Library-Basics</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Guidelines">https://github.com/processing/processing4/wiki/Library-Guidelines</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Overview">https://github.com/processing/processing4/wiki/Library-Overview</a></li>
+<li>Open Eclipse</li>
+<li>Update <code>src\bpm.library\BeatsPerMinute.java</code></li>
+<li>Open Ant window <code>Window -&gt; Show View - Ant</code></li>
+<li>drag <code>resources\build.xml</code> to the Ant window on the right</li>
+<li>Run the Ant build</li>
+<li>Test every embedded example locally through the <code>Processing -&gt; File -&gt; Examples</code></li>
+<li>Commit changes to GitHub and create a new release</li>
+<li>Name the release <code>BPM Library Release [version] ([prettyVersion])</code> and tag it with tag [prettyVersion].</li>
+<li>Upload the <code>distribution\BPM-[version]\download\BPM_timings.txt</code> and <code>distribution\BPM-[version]\download\BPM_timings.zip</code> into the release.</li>
+<li>Check "Set as the latest release" (it should be checked by default)</li>
+<li>Edit the previous release. Remove the latest tag and set the appropriate [prettyVersion] tag.</li>
+<li>Edit the new created release, remove the [prettyVersion] tag and add the <strong>latest</strong> tag.</li>
+<li>You can check <a href="https://download.processing.org/contribs">https://download.processing.org/contribs</a> to check if the newest version is picked up by the automated contribution system.</li>
 </ul>
-<h2 id="contributors">Contributors</h2>
-<p>This template was created as part of the 2024 New Beginnings (pr05) Grant from the
-<a href="https://github.com/processing">Processing Foundation</a>, to simplify the
-workflows for libraries, tools, and modes, mentored by <a href="https://github.com/stefterv">@Stefterv</a>.</p>
-<p>It is based on and inspired by a number of Processing library templates, including:</p>
+<h3 id="debugging-issues">Debugging issues</h3>
 <ul>
-<li><a href="https://github.com/processing/processing-library-template-gradle">https://github.com/processing/processing-library-template-gradle</a></li>
-<li><a href="https://github.com/enkatsu/processing-library-template-gradle">https://github.com/enkatsu/processing-library-template-gradle</a></li>
-<li><a href="https://github.com/hamoid/processing-library-template/">https://github.com/hamoid/processing-library-template/</a></li>
+<li>Always check the build.properties files. I've been down a rabithole for 4 hours finding out I had changed my Documents folder location and the build.properties still had <code>sketchbook.location=${user.home}/Documents/Processing</code> instead of the new <code>sketchbook.location=${user.home}/Docs/Processing</code></li>
 </ul>
-<p>I wish to thank the developers of these repositories, who generously provided
-guidance and time. This template has been developed in collaboration with
-<a href="https://github.com/enkatsu">@enkatsu</a>.</p>
-<p>The example library was developed by Stig Møller Hansen (<a href="https://github.com/stixan">@stixan</a>).</p>
+<h2 id="create-your-own-processing-library">Create your own Processing Library</h2>
+<p>Thanks <a href="https://github.com/prisonerjohn">Elie Zananiri</a> for pointing out these things...</p>
+<p>There are a few steps:
+* Package your library according to the guidelines here: https://github.com/processing/processing/wiki/Library-Guidelines
+* Add a properties file according to the guidelines here: https://github.com/processing/processing/wiki/Library-Basics#describing-your-library--libraryproperties
+* Check the revision numbers for Processing 4 <a href="https://github.com/processing/processing4/blob/main/build/shared/revisions.md">here</a>.
+* Publish your library and properties to a static URL according to the guidelines here: https://github.com/processing/processing/wiki/Library-Basics#advertising-your-library</p>
+<ul>
+<li>If you're hosting your library on GitHub, use the GitHub Releases feature. Create a release tagged "latest" and move that tag up to the new commit whenever you make an update. Note that you can also tag each release with its version number, in case you want to make older releases still available on GitHub. Check out <a href="">processing-video</a> for a good example of that.</li>
+</ul>
+<p>So my URLs are always available through:
+* https://github.com/vincentsijben/bpm-timings-for-processing/releases/download/latest/BPM_timings.txt
+* https://github.com/vincentsijben/bpm-timings-for-processing/releases/download/latest/BPM_timings.zip</p>
+<p>I've based my Library on the <a href="https://github.com/processing/processing-library-template">Processing Library Template</a>. You could also check out the <a href="https://www.youtube.com/watch?v=pI2gvl9sdtE">Coding Train tutorial</a>. </p>
+<p>Note: 
+* use <code>classpath.local.location=/Applications/Processing.app/Contents/Java/core/library</code> instead of Daniel's example. When releasing a Library you can't have the <code>core.jar</code> in your lib folder.
+* Find and comment this line in your build.xml <code>&lt;taglet name="ExampleTaglet" path="resources/code" /&gt;</code>if you get <a href="https://github.com/processing/processing-library-template/issues/19">errors with generating Javadoc</a>. Find and remove this line in your build.xml as well <code>stylesheetfile="resources/stylesheet.css"</code>
+* I added a symlink to each and every example folder, so I can directly open up an example in Processing IDE and add new features in the BeatsPerMinute.java file. Processing IDE needs to "see" the .java file in the same directory as the .pde file to work. Unfortunately I haven't found a way for these symlinks to work both on MacOS and Windows at the same time. So according to your dev environment, (re)create the symlinks when necessary. I excluded the .java file in build.xml so they won't show up in production with:
+<div class="highlight"><pre><span></span><code>&lt;copy todir=&quot;${project.tmp}/${project.name}/examples&quot;&gt;
+    &lt;fileset dir=&quot;${project.examples}&quot;&gt;
+        &lt;exclude name=&quot;**/*README*&quot;/&gt;
+        &lt;exclude name=&quot;**/*.java&quot;/&gt;
+    &lt;/fileset&gt;
+&lt;/copy&gt;
+</code></pre></div>
+To create symlinks:
+<div class="highlight"><pre><span></span><code># For MacOS: while in the root folder of this project:
+ln -s ../../src/bpm/library/BeatsPerMinute.java ./examples/animatedSVG/BeatsPerMinute.java
+ln -s ../../src/bpm/library/BeatsPerMinute.java ./examples/beatcount/BeatsPerMinute.java
+ln -s ../../src/bpm/library/BeatsPerMinute.java ./examples/colorPalettes/BeatsPerMinute.java
+ln -s ../../src/bpm/library/BeatsPerMinute.java ./examples/delay/BeatsPerMinute.java
+ln -s ../../src/bpm/library/BeatsPerMinute.java ./examples/metronome/BeatsPerMinute.java
+ln -s ../../src/bpm/library/BeatsPerMinute.java ./examples/randomColor/BeatsPerMinute.java
+ln -s ../../src/bpm/library/BeatsPerMinute.java ./examples/randomGridSpots/BeatsPerMinute.java
+
+# For Windows: while in the root folder of this project:
+mklink .\examples\animatedSVG\BeatsPerMinute.java &quot;..\..\src\bpm\library\BeatsPerMinute.java&quot;
+mklink .\examples\beatcount\BeatsPerMinute.java &quot;..\..\src\bpm\library\BeatsPerMinute.java&quot;
+mklink .\examples\colorPalettes\BeatsPerMinute.java &quot;..\..\src\bpm\library\BeatsPerMinute.java&quot;
+mklink .\examples\delay\BeatsPerMinute.java &quot;..\..\src\bpm\library\BeatsPerMinute.java&quot;
+mklink .\examples\metronome\BeatsPerMinute.java &quot;..\..\src\bpm\library\BeatsPerMinute.java&quot;
+mklink .\examples\randomColor\BeatsPerMinute.java &quot;..\..\src\bpm\library\BeatsPerMinute.java&quot;
+mklink .\examples\randomGridSpots\BeatsPerMinute.java &quot;..\..\src\bpm\library\BeatsPerMinute.java&quot;
+</code></pre></div>
+ArduinoControls examples:
+<div class="highlight"><pre><span></span><code>ln -s ../../../src/bpm/library/arduinocontrols/ArduinoControls.java ./examples/ArduinoControls/basics/ArduinoControls.java
+ln -s ../../../src/bpm/library/arduinocontrols/LED.java ./examples/ArduinoControls/basics/LED.java
+ln -s ../../../src/bpm/library/arduinocontrols/LEDMode.java ./examples/ArduinoControls/basics/LEDMode.java
+ln -s ../../../src/bpm/library/arduinocontrols/Potentiometer.java ./examples/ArduinoControls/basics/Potentiometer.java
+ln -s ../../../src/bpm/library/arduinocontrols/PushButton.java ./examples/ArduinoControls/basics/PushButton.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/ArduinoControls/basics/InfoPanel.java
+
+ln -s ../../../src/bpm/library/arduinocontrols/ArduinoControls.java ./examples/ArduinoControls/all_controls/ArduinoControls.java
+ln -s ../../../src/bpm/library/arduinocontrols/LED.java ./examples/ArduinoControls/all_controls/LED.java
+ln -s ../../../src/bpm/library/arduinocontrols/LEDMode.java ./examples/ArduinoControls/all_controls/LEDMode.java
+ln -s ../../../src/bpm/library/arduinocontrols/Potentiometer.java ./examples/ArduinoControls/all_controls/Potentiometer.java
+ln -s ../../../src/bpm/library/arduinocontrols/PushButton.java ./examples/ArduinoControls/all_controls/PushButton.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/ArduinoControls/all_controls/InfoPanel.java
+
+ln -s ../../../src/bpm/library/arduinocontrols/ArduinoControls.java ./examples/ArduinoControls/smoothing/ArduinoControls.java
+ln -s ../../../src/bpm/library/arduinocontrols/LED.java ./examples/ArduinoControls/smoothing/LED.java
+ln -s ../../../src/bpm/library/arduinocontrols/LEDMode.java ./examples/ArduinoControls/smoothing/LEDMode.java
+ln -s ../../../src/bpm/library/arduinocontrols/Potentiometer.java ./examples/ArduinoControls/smoothing/Potentiometer.java
+ln -s ../../../src/bpm/library/arduinocontrols/PushButton.java ./examples/ArduinoControls/smoothing/PushButton.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/ArduinoControls/smoothing/InfoPanel.java
+</code></pre></div>
+FrequencyAnalyzer examples:
+<div class="highlight"><pre><span></span><code>ln -s ../../../src/bpm/library/frequencyanalyzer/FrequencyAnalyzer.java ./examples/FrequencyAnalyzer/basics/FrequencyAnalyzer.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioFileInputSource.java ./examples/FrequencyAnalyzer/basics/AudioFileInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputMode.java ./examples/FrequencyAnalyzer/basics/AudioInputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioOutputMode.java ./examples/FrequencyAnalyzer/basics/AudioOutputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputSource.java ./examples/FrequencyAnalyzer/basics/AudioInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/MicrophoneInputSource.java ./examples/FrequencyAnalyzer/basics/MicrophoneInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/LineInInputSource.java ./examples/FrequencyAnalyzer/basics/LineInInputSource.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/FrequencyAnalyzer/basics/InfoPanel.java
+
+ln -s ../../../src/bpm/library/frequencyanalyzer/FrequencyAnalyzer.java ./examples/FrequencyAnalyzer/mono/FrequencyAnalyzer.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioFileInputSource.java ./examples/FrequencyAnalyzer/mono/AudioFileInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputMode.java ./examples/FrequencyAnalyzer/mono/AudioInputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioOutputMode.java ./examples/FrequencyAnalyzer/mono/AudioOutputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputSource.java ./examples/FrequencyAnalyzer/mono/AudioInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/MicrophoneInputSource.java ./examples/FrequencyAnalyzer/mono/MicrophoneInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/LineInInputSource.java ./examples/FrequencyAnalyzer/mono/LineInInputSource.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/FrequencyAnalyzer/mono/InfoPanel.java
+
+ln -s ../../../src/bpm/library/frequencyanalyzer/FrequencyAnalyzer.java ./examples/FrequencyAnalyzer/stereo/FrequencyAnalyzer.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioFileInputSource.java ./examples/FrequencyAnalyzer/stereo/AudioFileInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputMode.java ./examples/FrequencyAnalyzer/stereo/AudioInputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioOutputMode.java ./examples/FrequencyAnalyzer/stereo/AudioOutputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputSource.java ./examples/FrequencyAnalyzer/stereo/AudioInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/MicrophoneInputSource.java ./examples/FrequencyAnalyzer/stereo/MicrophoneInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/LineInInputSource.java ./examples/FrequencyAnalyzer/stereo/LineInInputSource.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/FrequencyAnalyzer/stereo/InfoPanel.java
+</code></pre></div>
+BPM_Timing examples:
+<div class="highlight"><pre><span></span><code>ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/adsr/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/adsr/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/adsrSquares/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/adsrSquares/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/animatedSVG/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/animatedSVG/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/basic/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/basic/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/beatcount/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/beatcount/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/colorPalettes/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/colorPalettes/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/delay/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/delay/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/metronome/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/metronome/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/randomColor/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/randomColor/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/randomGridSpots/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/randomGridSpots/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/adsr/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/adsr/InfoPanel.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/BPM_Timings/test/BeatsPerMinute.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/BPM_Timings/test/InfoPanel.java
+</code></pre></div>
+All_combined:
+<div class="highlight"><pre><span></span><code>ln -s ../../../src/bpm/library/arduinocontrols/ArduinoControls.java ./examples/All_combined/startercode/ArduinoControls.java
+ln -s ../../../src/bpm/library/arduinocontrols/LED.java ./examples/All_combined/startercode/LED.java
+ln -s ../../../src/bpm/library/arduinocontrols/LEDMode.java ./examples/All_combined/startercode/LEDMode.java
+ln -s ../../../src/bpm/library/arduinocontrols/Potentiometer.java ./examples/All_combined/startercode/Potentiometer.java
+ln -s ../../../src/bpm/library/arduinocontrols/PushButton.java ./examples/All_combined/startercode/PushButton.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/All_combined/startercode/InfoPanel.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/FrequencyAnalyzer.java ./examples/All_combined/startercode/FrequencyAnalyzer.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioFileInputSource.java ./examples/All_combined/startercode/AudioFileInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputMode.java ./examples/All_combined/startercode/AudioInputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioOutputMode.java ./examples/All_combined/startercode/AudioOutputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputSource.java ./examples/All_combined/startercode/AudioInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/MicrophoneInputSource.java ./examples/All_combined/startercode/MicrophoneInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/LineInInputSource.java ./examples/All_combined/startercode/LineInInputSource.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/All_combined/startercode/BeatsPerMinute.java
+
+ln -s ../../../src/bpm/library/arduinocontrols/ArduinoControls.java ./examples/All_combined/genart_heart/ArduinoControls.java
+ln -s ../../../src/bpm/library/arduinocontrols/LED.java ./examples/All_combined/genart_heart/LED.java
+ln -s ../../../src/bpm/library/arduinocontrols/LEDMode.java ./examples/All_combined/genart_heart/LEDMode.java
+ln -s ../../../src/bpm/library/arduinocontrols/Potentiometer.java ./examples/All_combined/genart_heart/Potentiometer.java
+ln -s ../../../src/bpm/library/arduinocontrols/PushButton.java ./examples/All_combined/genart_heart/PushButton.java
+ln -s ../../../src/bpm/library/InfoPanel.java ./examples/All_combined/genart_heart/InfoPanel.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/FrequencyAnalyzer.java ./examples/All_combined/genart_heart/FrequencyAnalyzer.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioFileInputSource.java ./examples/All_combined/genart_heart/AudioFileInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputMode.java ./examples/All_combined/genart_heart/AudioInputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioOutputMode.java ./examples/All_combined/genart_heart/AudioOutputMode.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/AudioInputSource.java ./examples/All_combined/genart_heart/AudioInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/MicrophoneInputSource.java ./examples/All_combined/genart_heart/MicrophoneInputSource.java
+ln -s ../../../src/bpm/library/frequencyanalyzer/LineInInputSource.java ./examples/All_combined/genart_heart/LineInInputSource.java
+ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/All_combined/genart_heart/BeatsPerMinute.java
+</code></pre></div></p>
 
 
 
@@ -412,6 +696,28 @@ guidance and time. This template has been developed in collaboration with
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="frequencyanalyzer.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Frequency Analyzer">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Frequency Analyzer
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
