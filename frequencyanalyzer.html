@@ -548,8 +548,12 @@ void draw() {
 </code></pre></div>
 <p>The FrequencyAnalyzer class provides the following main functions:</p>
 <ul>
-<li><code>getAvgRaw(1)</code> returns non-normalized "raw" averaged amplitude for frequency band 1. The index ranges from 0 to logAverages(22, 3) which is 30 by default.</li>
-<li><code>getAvgRawLeft(1)</code> same as getAvgRaw(1) but specific for the left channel.</li>
+<li>
+<p><code>getAvgRaw(1)</code> returns non-normalized "raw" averaged amplitude for frequency band 1. The index ranges from 0 to logAverages(22, 3) which is 30 by default.</p>
+</li>
+<li>
+<p><code>getAvgRawLeft(1)</code> same as getAvgRaw(1) but specific for the left channel.</p>
+</li>
 <li><code>getAvgRawRight(1)</code> same as getAvgRaw(1) but specific for the right channel.</li>
 </ul>
 <p>todo:</p>
@@ -573,8 +577,12 @@ void draw() {
 <li><code>.showInfoPanel()</code> to show the infopanel.</li>
 <li><code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.</li>
 <li><code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.</li>
-<li><code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:</li>
-<li><code>CTRL + 1</code> switch to FILE mode</li>
+<li>
+<p><code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:</p>
+</li>
+<li>
+<p><code>CTRL + 1</code> switch to FILE mode</p>
+</li>
 <li><code>CTRL + 2</code> switch to MONO mode</li>
 <li><code>CTRL + 3</code> switch to STEREO mode</li>
 <li><code>CTRL + M</code> toggle monitoring on LINE_IN or MICROPHONE input</li>
