@@ -28,6 +28,7 @@ plugins:
 nav:
   - Home: index.md
   - Get Started: getting-started.md
-  - Develop: develop.md
-  - Release: release.md
-  - Troubleshooting: troubleshooting.md
+  - BPM: bpm.md
+  - Arduino Controls: arduinocontrols.md
+  - Frequency Analyzer: frequencyanalyzer.md
+  - Contribute: contribute.md
