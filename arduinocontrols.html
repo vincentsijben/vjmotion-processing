@@ -506,12 +506,14 @@
 <h1 id="arduinocontrols">ArduinoControls</h1>
 <p>This ArduinoControls class is used at the Maastricht Institute of Arts exposition during the "Generative Art" semester.
 Students build their own Arduino remote controller with 3 potentiometers, 3 pushbuttons and 3 LEDs.</p>
-<p>This library simplifies the use for these controls. It adds functionality like:
- - executing single commands when longpressing pushbuttons;
- - multiple pushbuttons being pressed
- - smooth analog potmeter values, reducing 'jumping' values
- - fallback to keyboard and mouse when not using arduino
- - only write LED once instead of continuously, preventing flickering</p>
+<p>This library simplifies the use for these controls. It adds functionality like:</p>
+<ul>
+<li>executing single commands when longpressing pushbuttons;</li>
+<li>multiple pushbuttons being pressed</li>
+<li>smooth analog potmeter values, reducing 'jumping' values</li>
+<li>fallback to keyboard and mouse when not using arduino</li>
+<li>only write LED once instead of continuously, preventing flickering</li>
+</ul>
 <h2 id="usage">Usage</h2>
 <p>Be sure to check the console to find the correct serial port. In this example port 3 (index 2) is used.
 <div class="highlight"><pre><span></span><code>// Import the library to your sketch
@@ -549,24 +551,28 @@ void draw() {
   line(width/2, 0, width/2, height);
 }
 </code></pre></div></p>
-<p>The ArduinoControls class provides the following main functions:
-* <code>setLEDToOn(0)</code> function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses <code>255</code>, else <code>Arduino.High</code>.
-* <code>setLEDToOff(2)</code> function that turns off the LED with index 2.
-* <code>setLED(0,200)</code> function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.
-* <code>getPushButton(0)</code> function that returns true while the pushbutton with index 0 is being pushed.
-* <code>getPushButtonOnce(0)</code> function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.
-* <code>getPotentiometer(0)</code> functon that returns the raw normalized value from potentiometer with index 0, without any smoothing
-* <code>getPotentiometer(0, 0.5)</code> functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.</p>
-<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):
-* <code>.addArduino(arduino)</code> mandatory to add the global arduino object to the class. If you omit it, the keypresses associated with all controls will be enabled.
-* <code>.addLED(9)</code> to add an LED to the class at digital port 9.
-* <code>.addLED(10, LEDMode.PWM)</code> to add an LED to the class at digital port 10 as a PWM connected LED. The LEDMode argument is optional (default is <code>LEDMode.DIGITAL</code>).
-* <code>.addPushButton(7, '1', Arduino.LOW)</code> to add a pushbutton to the class at digital port 7, that is controllable with the keyboard key '1' when not connected and has a value of Arduino.LOW when pressed. All three arguments are mandatory.
-* <code>.addPotentiometer(0, 'q')</code> to add a potentiometer to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'q'. Both arguments are mandatory.
-* <code>.showInfoPanel()</code> to show the infopanel.
-* <code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
-* <code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
-* <code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then the keys you provided as arguments for pushbuttons and potentiometers will work</p>
+<p>The ArduinoControls class provides the following main functions:</p>
+<ul>
+<li><code>setLEDToOn(0)</code> function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses <code>255</code>, else <code>Arduino.High</code>.</li>
+<li><code>setLEDToOff(2)</code> function that turns off the LED with index 2.</li>
+<li><code>setLED(0,200)</code> function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.</li>
+<li><code>getPushButton(0)</code> function that returns true while the pushbutton with index 0 is being pushed.</li>
+<li><code>getPushButtonOnce(0)</code> function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.</li>
+<li><code>getPotentiometer(0)</code> functon that returns the raw normalized value from potentiometer with index 0, without any smoothing</li>
+<li><code>getPotentiometer(0, 0.5)</code> functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.</li>
+</ul>
+<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):</p>
+<ul>
+<li><code>.addArduino(arduino)</code> mandatory to add the global arduino object to the class. If you omit it, the keypresses associated with all controls will be enabled.</li>
+<li><code>.addLED(9)</code> to add an LED to the class at digital port 9.</li>
+<li><code>.addLED(10, LEDMode.PWM)</code> to add an LED to the class at digital port 10 as a PWM connected LED. The LEDMode argument is optional (default is <code>LEDMode.DIGITAL</code>).</li>
+<li><code>.addPushButton(7, '1', Arduino.LOW)</code> to add a pushbutton to the class at digital port 7, that is controllable with the keyboard key '1' when not connected and has a value of Arduino.LOW when pressed. All three arguments are mandatory.</li>
+<li><code>.addPotentiometer(0, 'q')</code> to add a potentiometer to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'q'. Both arguments are mandatory.</li>
+<li><code>.showInfoPanel()</code> to show the infopanel.</li>
+<li><code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.</li>
+<li><code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.</li>
+<li><code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then the keys you provided as arguments for pushbuttons and potentiometers will work</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <p>You can find all these examples in <code>Processing -&gt; File - Examples - Contributed Libraries - BPM timings - ArduinoControls</code>.</p>
 <table width="100%">

@@ -488,19 +488,7 @@
 <h1 id="bpm-functions">BPM functions</h1>
 <p>The BeatsPerMinute class provides the following main functions:</p>
 <ul>
-<li>test1</li>
-<li>
-<p>test2</p>
-</li>
-<li>
-<p>test1</p>
-</li>
-<li>
-<p>test2</p>
-</li>
-<li>
-<p><code>linear()</code> function that returns a normalized linear progress value from 0 to 1 for any given amount of beats, or with a given delay:</p>
-</li>
+<li><code>linear()</code> function that returns a normalized linear progress value from 0 to 1 for any given amount of beats, or with a given delay:</li>
 <li><code>linear()</code> returns progress in 1 beat</li>
 <li><code>linear(4)</code> returns progress in 4 beats</li>
 <li><code>linear(4,3)</code> returns progress in 4 beats, with a delay of 3 beats</li>
@@ -513,38 +501,42 @@
 <li><code>getBeatCount()</code> to return the current beatcount.</li>
 <li><code>getSurfaceTitle()</code> show information on BPM, beatCount and frameRate in your surface title. To be used in your main sketch like <code>surface.setTitle(bpm.getSurfaceTitle());</code></li>
 </ul>
-<p>A more advanced progression function <code>adsr()</code> that uses attack, decay, sustain and release options to control the (linear) progression:
-* <code>adsr(0.2)</code> function that uses an attack of 20% to get from 0 to 1 and stay at 1 for the remainder of the beat
-* <code>adsr(0.2, 0.4, 0.5, 0.1)</code> function that uses an attack of 20% to get from 0 to 1, a decay of 40% to get to 0.5, stay for 30% of the time at that 0.5 and uses a release of 10% to get from 0.5 to 0.
-* <code>adsr(0.2, 0.4, 0.5, 0.1, 2)</code> similar as the previous one, but with an additional parameter for duration in beats. In this case to animate over 2 beats.
-* <code>adsr(0.2, 0.4, 0.5, 0.1, 2, 1)</code> similar as the previous one, but with an additional parameter for delay in beats. In this case delay of 1 beat.</p>
-<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your bpm object for clarity):
-* <code>.setBPM(120)</code> to change the amount of beats per minute for all calculations.
-* <code>.showInfoPanel()</code> to show the infopanel.
-* <code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
-* <code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
-* <code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work by default:
-  * <code>0</code> press once to reset timer, press multiple times to set the BPM to your 'press'-timing
-  * <code>-</code> lower bpm
-  * <code>+</code> raise bpm</p>
+<p>A more advanced progression function <code>adsr()</code> that uses attack, decay, sustain and release options to control the (linear) progression:</p>
+<ul>
+<li><code>adsr(0.2)</code> function that uses an attack of 20% to get from 0 to 1 and stay at 1 for the remainder of the beat</li>
+<li><code>adsr(0.2, 0.4, 0.5, 0.1)</code> function that uses an attack of 20% to get from 0 to 1, a decay of 40% to get to 0.5, stay for 30% of the time at that 0.5 and uses a release of 10% to get from 0.5 to 0.</li>
+<li><code>adsr(0.2, 0.4, 0.5, 0.1, 2)</code> similar as the previous one, but with an additional parameter for duration in beats. In this case to animate over 2 beats.</li>
+<li><code>adsr(0.2, 0.4, 0.5, 0.1, 2, 1)</code> similar as the previous one, but with an additional parameter for delay in beats. In this case delay of 1 beat.</li>
+</ul>
+<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your bpm object for clarity):</p>
+<ul>
+<li><code>.setBPM(120)</code> to change the amount of beats per minute for all calculations.</li>
+<li><code>.showInfoPanel()</code> to show the infopanel.</li>
+<li><code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.</li>
+<li><code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.</li>
+<li><code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work by default:</li>
+<li><code>0</code> press once to reset timer, press multiple times to set the BPM to your 'press'-timing</li>
+<li><code>-</code> lower bpm</li>
+<li><code>+</code> raise bpm</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <p>You can find all these examples in <code>Processing -&gt; File - Examples - Contributed Libraries - VJMotion - BPM</code>.</p>
 <table width="100%">
 
   <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/animatedSVG/animatedSVG.pde">animatedSVG</a><br><img src="assets/example-animatedsvg.gif" width="100%" alt="screenshot for example animatedSVG" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/beatcount/beatcount.pde">beatCount</a><br><img src="assets/example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="assets/example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/animatedSVG/animatedSVG.pde">animatedSVG</a><br><img src="./example-animatedsvg.gif" width="100%" alt="screenshot for example animatedSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/beatcount/beatcount.pde">beatCount</a><br><img src="./example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="./example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
   </tr>
    <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/delay/delay.pde">delay</a><br><img src="assets/example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/metronome/metronome.pde">metronome</a><br><img src="assets/example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomColor/randomColor.pde">randomcolor</a><br><img src="assets/example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/delay/delay.pde">delay</a><br><img src="./example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/metronome/metronome.pde">metronome</a><br><img src="./example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomColor/randomColor.pde">randomcolor</a><br><img src="./example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
   </tr>
   <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="assets/example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="assets/example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/adsr/adsr.pde">adsr</a><br><img src="assets/example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="./example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="./example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/adsr/adsr.pde">adsr</a><br><img src="./example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
   </tr>
 
  </table>

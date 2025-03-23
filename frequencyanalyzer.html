@@ -506,12 +506,16 @@
 <h1 id="frequencyanalyzer">FrequencyAnalyzer</h1>
 <p>This FrequencyAnalyzer class is used at the Maastricht Institute of Arts exposition during the "Generative Art" semester.
 Students create sketches that react in realtime to audio input (line-in, audio file or microphone).</p>
-<p>This library adds functionality like:
- - easily switch between input modes (audio file, microphone, line-in)
- - toggle mute (audio file playing) or monitoring (microphone or line-in)</p>
-<p>todo:
- - return raw or normalized values of specific frequency bands
- - reset the max value that is used for mapping normalized values of frequency amplitudes. Can be set to an interval.</p>
+<p>This library adds functionality like:</p>
+<ul>
+<li>easily switch between input modes (audio file, microphone, line-in)</li>
+<li>toggle mute (audio file playing) or monitoring (microphone or line-in)</li>
+</ul>
+<p>todo:</p>
+<ul>
+<li>return raw or normalized values of specific frequency bands</li>
+<li>reset the max value that is used for mapping normalized values of frequency amplitudes. Can be set to an interval.</li>
+</ul>
 <h2 id="usage">Usage</h2>
 <div class="highlight"><pre><span></span><code>// Import the library to your sketch
 import bpm.library.frequencyanalyzer.*;
@@ -559,20 +563,22 @@ void draw() {
 <li>~~<code>getLeftChannelBuffer()</code> returns the left audio buffer.~~</li>
 <li>~~<code>getRightChannelBuffer()</code> returns the right audio buffer.~~</li>
 </ul>
-<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your frequencyanalyzer object for clarity):
-* <code>.addMinim(minim)</code> mandatory to add the global minim object to the class.
-* <code>.setFile("example.mp3")</code> to set the file for the audioplayer. Defaults to "https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3"
-* <code>.setAudioInputMode(AudioInputMode.AUDIO_FILE)</code> to set the input mode to AudioInputMode.AUDIO_FILE. You can also set it to AudioInputMode.LINE_IN or AudioInputMode.MICROPHONE. Defaults to AudioInputMode.MICROPHONE. 
-* <code>.setAudioInputMode(AudioInputMode.AUDIO_FILE, n)</code> same as previous one, but you can also set the bufferSize. Needs to be a power of 2. A lower amount results in less audio resolution and decreases delay . Defaults to 1024.
-* <code>.setAudioOutputMode(AudioOutputMode.STEREO)</code> to set the output mode to AudioOutputMode.STEREO. Defaults to AudioOutputMode.MONO. Use it to get access to both left and right channel analysis.
-* <code>.showInfoPanel()</code> to show the infopanel.
-* <code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
-* <code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
-* <code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:
-  * <code>CTRL + 1</code> switch to FILE mode
-  * <code>CTRL + 2</code> switch to MONO mode
-  * <code>CTRL + 3</code> switch to STEREO mode
-  * <code>CTRL + M</code> toggle monitoring on LINE_IN or MICROPHONE input</p>
+<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your frequencyanalyzer object for clarity):</p>
+<ul>
+<li><code>.addMinim(minim)</code> mandatory to add the global minim object to the class.</li>
+<li><code>.setFile("example.mp3")</code> to set the file for the audioplayer. Defaults to "https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3"</li>
+<li><code>.setAudioInputMode(AudioInputMode.AUDIO_FILE)</code> to set the input mode to AudioInputMode.AUDIO_FILE. You can also set it to AudioInputMode.LINE_IN or AudioInputMode.MICROPHONE. Defaults to AudioInputMode.MICROPHONE. </li>
+<li><code>.setAudioInputMode(AudioInputMode.AUDIO_FILE, n)</code> same as previous one, but you can also set the bufferSize. Needs to be a power of 2. A lower amount results in less audio resolution and decreases delay . Defaults to 1024.</li>
+<li><code>.setAudioOutputMode(AudioOutputMode.STEREO)</code> to set the output mode to AudioOutputMode.STEREO. Defaults to AudioOutputMode.MONO. Use it to get access to both left and right channel analysis.</li>
+<li><code>.showInfoPanel()</code> to show the infopanel.</li>
+<li><code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.</li>
+<li><code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.</li>
+<li><code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:</li>
+<li><code>CTRL + 1</code> switch to FILE mode</li>
+<li><code>CTRL + 2</code> switch to MONO mode</li>
+<li><code>CTRL + 3</code> switch to STEREO mode</li>
+<li><code>CTRL + M</code> toggle monitoring on LINE_IN or MICROPHONE input</li>
+</ul>
 <!-- 
   * `CTRL + R` reset the max value
 * `getAvg(2)` function that returns normalized value of the frequency band with index 2. The normalization mapping is done by continuously checking the highest overall amplitude.
@@ -583,7 +589,7 @@ void draw() {
 -->
 
 <h2 id="examples">Examples</h2>
-<p>You can find all these examples in <code>Processing -&gt; File - Examples - Contributed Libraries - BPM timings - FrequencyAnalyzer</code>.</p>
+<p>You can find all these examples in <code>Processing -&gt; File - Examples - Contributed Libraries - VJMotion - FrequencyAnalyzer</code>.</p>
 <table width="100%">
   <tr>
     <td valign="top" align="center" width="33%">example title<br>image example</td>
