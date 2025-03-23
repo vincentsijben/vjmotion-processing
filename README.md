@@ -10,8 +10,8 @@ This library was originally created in 2023 for the Maastricht Institute of Arts
 
 <table width="100%">
   <tr>
-    <td valign="top" align="center" width="50%"><a target="_blank" href="https://vimeo.com/911124908/735f46dc5b?share=copy"><img src="assets/thumbnail-video1.jpg" alt="Generative Art Exposition and Performance in Maastricht 2023" width="300"/></a><br>GenArt Expo 2023 (Dutch version)</td>
-    <td valign="top" align="center" width="50%"><a target="_blank" href="https://vimeo.com/1013689471/da1bcb3048?share=copy"><img src="assets/thumbnail-video2.jpg" alt="Generative Art Exposition and Performance in Maastricht 2024" width="300"/></a><br>GenArt Expo 2024 (English version)</td>
+    <td valign="top" align="center" width="50%"><a href="https://vimeo.com/911124908/735f46dc5b?share=copy"><img src="assets/thumbnail-video1.jpg" alt="Generative Art Exposition and Performance in Maastricht 2023" width="300"/></a><br>GenArt Expo 2023 (Dutch version)</td>
+    <td valign="top" align="center" width="50%"><a href="https://vimeo.com/1013689471/da1bcb3048?share=copy"><img src="assets/thumbnail-video2.jpg" alt="Generative Art Exposition and Performance in Maastricht 2024" width="300"/></a><br>GenArt Expo 2024 (English version)</td>
   </tr>
  </table>
 
@@ -26,8 +26,8 @@ Students collaborated with several artists. Click the thumbnail for more informa
  </table>
 
 
-## How to install
-Install the library by downloading the latest release through the Processing contribution manager: go to `Processing > Sketch > Import Library... > Manage Libraries...` , search for "VJMotion" and click install.
+## Installation
+Install the library by downloading the latest release through the Processing contribution manager. Open Processing and go to `Sketch > Import Library... > Manage Libraries...` , search for **VJMotion** and click install.
 
 ## Usage
 
