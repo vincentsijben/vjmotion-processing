@@ -3,7 +3,7 @@
 The Processing Library Template is a template to help developers of Processing libraries to develop and release.
 It can be found on Github at [https://github.com/processing/processing-library-template](https://github.com/processing/processing-library-template).
 
-![example sketch output](./assets/example-delay.gif)
+![example sketch output](./example-delay.gif)
 
 This documentation provides information on
 

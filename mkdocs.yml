@@ -1,5 +1,5 @@
-site_name: Processing Library Template
-site_url: "https://processing.github.io/processing-library-template/"
+site_name: VJMotion library for Processing
+site_url: "https://vincentsijben.github.io/vjmotion-processing/"
 
 theme:
   name: material
