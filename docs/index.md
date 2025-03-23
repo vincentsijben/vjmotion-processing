@@ -1,7 +1,6 @@
 # VJMotion library for Processing
 
-The Processing Library Template is a template to help developers of Processing libraries to develop and release.
-It can be found on Github at [https://github.com/processing/processing-library-template](https://github.com/processing/processing-library-template).
+A Processing library that helps you create live, audio-reactive visuals with BPM-synced animations, Arduino controls, and real-time motion driven by music.
 
 ![example sketch output](./example-delay.gif)
 

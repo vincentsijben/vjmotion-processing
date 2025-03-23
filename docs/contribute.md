@@ -4,7 +4,7 @@ This library was based on the official [Processing Library Template](https://git
 I invite you to contribute to this library in all means. Please do send bug reports or give any usable feedback!
 
 !!! note
-    I changed several things from the original template, but sdid send them as Pull Request to the official repo. In the future, these additions could already be inside the offical repo.
+    I changed several things from the original template. I made some Pull Requests, so I hope they will be accepted soon.
 
 ## Personal notes for the previous "Ant" approach
 I've copied `library.properties` to the root and called it `library.properties.example` so I could see the original comments for the file. In `resources\library.properties` I've removed all comments, so the generated `distribution\...\.txt` file is clean and simple.
