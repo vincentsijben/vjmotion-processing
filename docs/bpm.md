@@ -1,6 +1,13 @@
 # BPM functions
 
 The BeatsPerMinute class provides the following main functions:
+
+* test1
+* test2
+
+- test1
+- test2
+
 * `linear()` function that returns a normalized linear progress value from 0 to 1 for any given amount of beats, or with a given delay:
   * `linear()` returns progress in 1 beat
   * `linear(4)` returns progress in 4 beats
