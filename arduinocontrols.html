@@ -8,10 +8,8 @@
       
       
       
-        <link rel="canonical" href="https://processing.github.io/processing-library-template/troubleshooting.html">
+        <link rel="canonical" href="https://processing.github.io/processing-library-template/arduinocontrols.html">
       
-      
-        <link rel="prev" href="release.html">
       
       
       
@@ -20,7 +18,7 @@
     
     
       
-        <title>Troubleshooting - Processing Library Template</title>
+        <title>ArduinoControls - Processing Library Template</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#troubleshooting" class="md-skip">
+        <a href="#arduinocontrols" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Troubleshooting
+              ArduinoControls
             
           </span>
         </div>
@@ -242,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="develop.html" class="md-nav__link">
+      <a href="develop.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -263,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release.html" class="md-nav__link">
+      <a href="release.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -281,31 +279,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Troubleshooting
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="troubleshooting.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="troubleshooting.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -315,44 +292,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#library-does-not-appear-as-contributed-library-in-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Library does not appear as contributed library in Processing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependency-is-not-accessible-in-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dependency is not accessible in code
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -384,18 +323,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#library-does-not-appear-as-contributed-library-in-processing" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
-      Library does not appear as contributed library in Processing
+      Usage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#dependency-is-not-accessible-in-code" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
-      Dependency is not accessible in code
+      Examples
     </span>
   </a>
   
@@ -417,24 +356,84 @@
 
 
 
-<h1 id="troubleshooting">Troubleshooting</h1>
-<h2 id="library-does-not-appear-as-contributed-library-in-processing">Library does not appear as contributed library in Processing</h2>
-<ol>
-<li>Please check that the value you have for your library name in the code is the same as the <code>libName</code> in
-   the <code>build.gradle.kts</code> file. </li>
-<li>One possible issue is the location of your <code>sketchbook</code> folder. Processing stores installed libraries in 
-   the <code>sketchbook</code> folder. Where your <code>sketchbook</code> folder is located depends on your operating system. You 
-   can see where Gradle thinks your sketchbook folder is in the task run output. Check that the folder exists, 
-   and contains the subfolder <code>libraries</code>. If not, you can check the sketchbook location in your Processing 
-   application preferences.  Click on <code>File</code> &gt; <code>Preferences</code>, and note the sketchbook folder location. If this 
-   location is different from what's in the Gradle build file, you will need to input the value manually. Also, 
-   please submit an issue to this repository.</li>
-</ol>
-<h2 id="dependency-is-not-accessible-in-code">Dependency is not accessible in code</h2>
-<ol>
-<li>If a dependency is not accessible in your code, check for errors in the build window in 
-   Intellij (hammer icon), or run <code>Tasks</code> &gt; <code>build</code> &gt; <code>build</code>, and look for an error message.</li>
-</ol>
+<h1 id="arduinocontrols">ArduinoControls</h1>
+<p>This ArduinoControls class is used at the Maastricht Institute of Arts exposition during the "Generative Art" semester.
+Students build their own Arduino remote controller with 3 potentiometers, 3 pushbuttons and 3 LEDs.</p>
+<p>This library simplifies the use for these controls. It adds functionality like:
+ - executing single commands when longpressing pushbuttons;
+ - multiple pushbuttons being pressed
+ - smooth analog potmeter values, reducing 'jumping' values
+ - fallback to keyboard and mouse when not using arduino
+ - only write LED once instead of continuously, preventing flickering</p>
+<h2 id="usage">Usage</h2>
+<p>Be sure to check the console to find the correct serial port. In this example port 3 (index 2) is used.
+<div class="highlight"><pre><span></span><code>// Import the library to your sketch
+import bpm.library.arduinocontrols.*;
+
+// Import the arduino and serial libraries
+import processing.serial.*;
+import cc.arduino.*;
+
+Arduino arduino;
+ArduinoControls ac;
+
+void setup() {
+  size(500, 500);
+
+  println(Arduino.list());
+  arduino = new Arduino(this, Arduino.list()[2], 57600);
+
+  ac = new ArduinoControls(this)
+    .addArduino(arduino)
+    .addLED(13)
+    ;
+}
+
+void draw() {
+  background(50);
+
+  // if mouse position is to the left, turn LED on, else turn it off
+  if (mouseX &lt; width/2) ac.setLED(0, 1);
+  else ac.setLED(0, 0);
+
+  text(&quot;on&quot;, width/4, height/2);
+  text(&quot;off&quot;, width/4*3, height/2);
+  stroke(255, 0, 0);
+  line(width/2, 0, width/2, height);
+}
+</code></pre></div></p>
+<p>The ArduinoControls class provides the following main functions:
+* <code>setLEDToOn(0)</code> function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses <code>255</code>, else <code>Arduino.High</code>.
+* <code>setLEDToOff(2)</code> function that turns off the LED with index 2.
+* <code>setLED(0,200)</code> function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.
+* <code>getPushButton(0)</code> function that returns true while the pushbutton with index 0 is being pushed.
+* <code>getPushButtonOnce(0)</code> function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.
+* <code>getPotentiometer(0)</code> functon that returns the raw normalized value from potentiometer with index 0, without any smoothing
+* <code>getPotentiometer(0, 0.5)</code> functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.</p>
+<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):
+* <code>.addArduino(arduino)</code> mandatory to add the global arduino object to the class. If you omit it, the keypresses associated with all controls will be enabled.
+* <code>.addLED(9)</code> to add an LED to the class at digital port 9.
+* <code>.addLED(10, LEDMode.PWM)</code> to add an LED to the class at digital port 10 as a PWM connected LED. The LEDMode argument is optional (default is <code>LEDMode.DIGITAL</code>).
+* <code>.addPushButton(7, '1', Arduino.LOW)</code> to add a pushbutton to the class at digital port 7, that is controllable with the keyboard key '1' when not connected and has a value of Arduino.LOW when pressed. All three arguments are mandatory.
+* <code>.addPotentiometer(0, 'q')</code> to add a potentiometer to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'q'. Both arguments are mandatory.
+* <code>.showInfoPanel()</code> to show the infopanel.
+* <code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
+* <code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
+* <code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then the keys you provided as arguments for pushbuttons and potentiometers will work</p>
+<h2 id="examples">Examples</h2>
+<p>You can find all these examples in <code>Processing -&gt; File - Examples - Contributed Libraries - BPM timings - ArduinoControls</code>.</p>
+<table width="100%">
+  <tr>
+    <td valign="top" align="center" width="33%">example title<br>image example</td>
+    <td valign="top" align="center" width="33%">example title<br>image example</td>
+    <td valign="top" align="center" width="33%">example title<br>image example</td>
+  </tr>
+   <tr>
+   <td valign="top" align="center" width="33%">example title<br>image example</td>
+   <td valign="top" align="center" width="33%">example title<br>image example</td>
+   <td valign="top" align="center" width="33%">example title<br>image example</td>
+  </tr>
+ </table>
 
 
 
@@ -465,28 +464,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="release.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Release">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Release
-              </div>
-            </div>
-          </a>
-        
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

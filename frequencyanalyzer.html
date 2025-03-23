@@ -8,11 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://processing.github.io/processing-library-template/index.html">
+        <link rel="canonical" href="https://processing.github.io/processing-library-template/frequencyanalyzer.html">
       
       
-      
-        <link rel="next" href="getting-started.html">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Processing Library Template</title>
+        <title>FrequencyAnalyzer - Processing Library Template</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#processing-library-template" class="md-skip">
+        <a href="#frequencyanalyzer" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              FrequencyAnalyzer
             
           </span>
         </div>
@@ -197,31 +195,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -231,44 +208,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributors
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -384,18 +323,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Usage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributors" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
-      Contributors
+      Examples
     </span>
   </a>
   
@@ -417,42 +356,99 @@
 
 
 
-<h1 id="processing-library-template">Processing Library Template</h1>
-<p>The Processing Library Template is a template to help developers of Processing libraries to develop and release.
-It can be found on Github at <a href="https://github.com/processing/processing-library-template">https://github.com/processing/processing-library-template</a>.</p>
-<p><img alt="example sketch output" src="example_sketch_output.png" /></p>
-<p>This documentation provides information on</p>
-<ol>
-<li><a href="getting-started.html">Getting started</a></li>
-<li><a href="develop">The development process</a></li>
-<li><a href="release">Releasing your library</a></li>
-<li><a href="troubleshooting.md">Troubleshooting</a></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This template is based on Gradle. If you are looking for the old Ant-based template, see processing/processing-library-template-ant</p>
-</div>
-<h2 id="references">References</h2>
-<p>Existing references for developing libraries for Processing can be found on the following Github wiki pages:</p>
+<h1 id="frequencyanalyzer">FrequencyAnalyzer</h1>
+<p>This FrequencyAnalyzer class is used at the Maastricht Institute of Arts exposition during the "Generative Art" semester.
+Students create sketches that react in realtime to audio input (line-in, audio file or microphone).</p>
+<p>This library adds functionality like:
+ - easily switch between input modes (audio file, microphone, line-in)
+ - toggle mute (audio file playing) or monitoring (microphone or line-in)</p>
+<p>todo:
+ - return raw or normalized values of specific frequency bands
+ - reset the max value that is used for mapping normalized values of frequency amplitudes. Can be set to an interval.</p>
+<h2 id="usage">Usage</h2>
+<div class="highlight"><pre><span></span><code>// Import the library to your sketch
+import bpm.library.frequencyanalyzer.*;
+
+// Import the minim library
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+
+Minim minim;
+FrequencyAnalyzer fa;
+
+void setup() {
+  size(500, 500);
+
+  minim = new Minim(this);
+  fa = new FrequencyAnalyzer(this)
+    .addMinim(minim)
+    .setFile(&quot;https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3&quot;)
+    .setAudioInputMode(AudioInputMode.AUDIO_FILE)
+    ;
+}
+
+void draw() {
+  background(50);
+
+  circle(width/4*1, height/2, fa.getAvgRaw(0));
+  circle(width/4*2, height/2, fa.getAvgRaw(10));
+  circle(width/4*3, height/2, fa.getAvgRaw(20));
+}
+</code></pre></div>
+<p>The FrequencyAnalyzer class provides the following main functions:</p>
 <ul>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Basics">https://github.com/processing/processing4/wiki/Library-Basics</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Guidelines">https://github.com/processing/processing4/wiki/Library-Guidelines</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Overview">https://github.com/processing/processing4/wiki/Library-Overview</a></li>
+<li><code>getAvgRaw(1)</code> returns non-normalized "raw" averaged amplitude for frequency band 1. The index ranges from 0 to logAverages(22, 3) which is 30 by default.</li>
+<li><code>getAvgRawLeft(1)</code> same as getAvgRaw(1) but specific for the left channel.</li>
+<li><code>getAvgRawRight(1)</code> same as getAvgRaw(1) but specific for the right channel.</li>
 </ul>
-<h2 id="contributors">Contributors</h2>
-<p>This template was created as part of the 2024 New Beginnings (pr05) Grant from the
-<a href="https://github.com/processing">Processing Foundation</a>, to simplify the
-workflows for libraries, tools, and modes, mentored by <a href="https://github.com/stefterv">@Stefterv</a>.</p>
-<p>It is based on and inspired by a number of Processing library templates, including:</p>
+<p>todo:</p>
 <ul>
-<li><a href="https://github.com/processing/processing-library-template-gradle">https://github.com/processing/processing-library-template-gradle</a></li>
-<li><a href="https://github.com/enkatsu/processing-library-template-gradle">https://github.com/enkatsu/processing-library-template-gradle</a></li>
-<li><a href="https://github.com/hamoid/processing-library-template/">https://github.com/hamoid/processing-library-template/</a></li>
+<li>~~<code>getBand(1)</code> returns the amplitude for frequency band 1. Used for a very specific and narrow frequency range. The index ranges from 0 to specSize().~~</li>
+<li>~~<code>getBandLeft(1)</code> same as getBand(1) but specific for the left channel.~~</li>
+<li>~~<code>getBandRight(1)</code> same as getBand(1) but specific for the right channel.~~</li>
+<li>~~<code>specSize()</code> returns the total amount of bands used. Typically 1025 ~~</li>
+<li>~~<code>avgSize()</code> returns the total amount of bands used in the logAverages function. Typically 30~~</li>
+<li>~~<code>getAudioBuffer()</code> returns the mixed (mono) audio buffer.~~</li>
+<li>~~<code>getLeftChannelBuffer()</code> returns the left audio buffer.~~</li>
+<li>~~<code>getRightChannelBuffer()</code> returns the right audio buffer.~~</li>
 </ul>
-<p>I wish to thank the developers of these repositories, who generously provided
-guidance and time. This template has been developed in collaboration with
-<a href="https://github.com/enkatsu">@enkatsu</a>.</p>
-<p>The example library was developed by Stig Møller Hansen (<a href="https://github.com/stixan">@stixan</a>).</p>
+<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your frequencyanalyzer object for clarity):
+* <code>.addMinim(minim)</code> mandatory to add the global minim object to the class.
+* <code>.setFile("example.mp3")</code> to set the file for the audioplayer. Defaults to "https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3"
+* <code>.setAudioInputMode(AudioInputMode.AUDIO_FILE)</code> to set the input mode to AudioInputMode.AUDIO_FILE. You can also set it to AudioInputMode.LINE_IN or AudioInputMode.MICROPHONE. Defaults to AudioInputMode.MICROPHONE. 
+* <code>.setAudioInputMode(AudioInputMode.AUDIO_FILE, n)</code> same as previous one, but you can also set the bufferSize. Needs to be a power of 2. A lower amount results in less audio resolution and decreases delay . Defaults to 1024.
+* <code>.setAudioOutputMode(AudioOutputMode.STEREO)</code> to set the output mode to AudioOutputMode.STEREO. Defaults to AudioOutputMode.MONO. Use it to get access to both left and right channel analysis.
+* <code>.showInfoPanel()</code> to show the infopanel.
+* <code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
+* <code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
+* <code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:
+  * <code>CTRL + 1</code> switch to FILE mode
+  * <code>CTRL + 2</code> switch to MONO mode
+  * <code>CTRL + 3</code> switch to STEREO mode
+  * <code>CTRL + M</code> toggle monitoring on LINE_IN or MICROPHONE input</p>
+<!-- 
+  * `CTRL + R` reset the max value
+* `getAvg(2)` function that returns normalized value of the frequency band with index 2. The normalization mapping is done by continuously checking the highest overall amplitude.
+* `getAvg(2, 150)` function that returns normalized value of the frequency band with index 2, mapped with a max value of 150.
+* `resetMaxValue()` function that resets the overall max value (to 0.1f).
+* `.resetMaxValueDuration(2000)` to reset the max value every 2000 milliseconds.
+* `.setBandsPerOctave(6)` to get a total of 6 * 10 bands. 
+-->
+
+<h2 id="examples">Examples</h2>
+<p>You can find all these examples in <code>Processing -&gt; File - Examples - Contributed Libraries - BPM timings - FrequencyAnalyzer</code>.</p>
+<table width="100%">
+  <tr>
+    <td valign="top" align="center" width="33%">example title<br>image example</td>
+    <td valign="top" align="center" width="33%">example title<br>image example</td>
+    <td valign="top" align="center" width="33%">example title<br>image example</td>
+  </tr>
+   <tr>
+   <td valign="top" align="center" width="33%">example title<br>image example</td>
+   <td valign="top" align="center" width="33%">example title<br>image example</td>
+   <td valign="top" align="center" width="33%">example title<br>image example</td>
+  </tr>
+ </table>
 
 
 
@@ -483,28 +479,6 @@ guidance and time. This template has been developed in collaboration with
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="getting-started.html" class="md-footer__link md-footer__link--next" aria-label="Next: Get Started">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Get Started
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

@@ -8,11 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://processing.github.io/processing-library-template/index.html">
+        <link rel="canonical" href="https://processing.github.io/processing-library-template/bpm.html">
       
       
-      
-        <link rel="next" href="getting-started.html">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Processing Library Template</title>
+        <title>BPM functions - Processing Library Template</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#processing-library-template" class="md-skip">
+        <a href="#bpm-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              BPM functions
             
           </span>
         </div>
@@ -197,31 +195,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -231,44 +208,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributors
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -384,18 +323,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
-      References
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributors
+      Examples
     </span>
   </a>
   
@@ -417,42 +347,55 @@
 
 
 
-<h1 id="processing-library-template">Processing Library Template</h1>
-<p>The Processing Library Template is a template to help developers of Processing libraries to develop and release.
-It can be found on Github at <a href="https://github.com/processing/processing-library-template">https://github.com/processing/processing-library-template</a>.</p>
-<p><img alt="example sketch output" src="example_sketch_output.png" /></p>
-<p>This documentation provides information on</p>
-<ol>
-<li><a href="getting-started.html">Getting started</a></li>
-<li><a href="develop">The development process</a></li>
-<li><a href="release">Releasing your library</a></li>
-<li><a href="troubleshooting.md">Troubleshooting</a></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This template is based on Gradle. If you are looking for the old Ant-based template, see processing/processing-library-template-ant</p>
-</div>
-<h2 id="references">References</h2>
-<p>Existing references for developing libraries for Processing can be found on the following Github wiki pages:</p>
-<ul>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Basics">https://github.com/processing/processing4/wiki/Library-Basics</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Guidelines">https://github.com/processing/processing4/wiki/Library-Guidelines</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Overview">https://github.com/processing/processing4/wiki/Library-Overview</a></li>
-</ul>
-<h2 id="contributors">Contributors</h2>
-<p>This template was created as part of the 2024 New Beginnings (pr05) Grant from the
-<a href="https://github.com/processing">Processing Foundation</a>, to simplify the
-workflows for libraries, tools, and modes, mentored by <a href="https://github.com/stefterv">@Stefterv</a>.</p>
-<p>It is based on and inspired by a number of Processing library templates, including:</p>
-<ul>
-<li><a href="https://github.com/processing/processing-library-template-gradle">https://github.com/processing/processing-library-template-gradle</a></li>
-<li><a href="https://github.com/enkatsu/processing-library-template-gradle">https://github.com/enkatsu/processing-library-template-gradle</a></li>
-<li><a href="https://github.com/hamoid/processing-library-template/">https://github.com/hamoid/processing-library-template/</a></li>
-</ul>
-<p>I wish to thank the developers of these repositories, who generously provided
-guidance and time. This template has been developed in collaboration with
-<a href="https://github.com/enkatsu">@enkatsu</a>.</p>
-<p>The example library was developed by Stig Møller Hansen (<a href="https://github.com/stixan">@stixan</a>).</p>
+<h1 id="bpm-functions">BPM functions</h1>
+<p>The BeatsPerMinute class provides the following main functions:
+* <code>linear()</code> function that returns a normalized linear progress value from 0 to 1 for any given amount of beats, or with a given delay:
+  * <code>linear()</code> returns progress in 1 beat
+  * <code>linear(4)</code> returns progress in 4 beats
+  * <code>linear(4,3)</code> returns progress in 4 beats, with a delay of 3 beats
+* <code>ease()</code> same as <code>linear()</code> but does not use a linear progression but an 'eased' or 'smooth' one. Again, can be called without arguments, with 1 argument (duration in beats) or with two (duration and delay in beats).
+* <code>linearBounce()</code> same as <code>linear()</code> but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.
+* <code>easeBounce()</code> same as <code>ease()</code> but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.
+* <code>every[n]</code> boolean that returns true every n beats. Returns true for the duration of 1 beat. Limited to a max of 16 beats.
+* <code>every_once[n]</code> same as <code>every[n]</code> but now the boolean returns true for only 1 frame. Useful for changing a variable once every n beats.
+* <code>getBPM()</code> to return the current BPM.
+* <code>getBeatCount()</code> to return the current beatcount.
+* <code>getSurfaceTitle()</code> show information on BPM, beatCount and frameRate in your surface title. To be used in your main sketch like <code>surface.setTitle(bpm.getSurfaceTitle());</code></p>
+<p>A more advanced progression function <code>adsr()</code> that uses attack, decay, sustain and release options to control the (linear) progression:
+* <code>adsr(0.2)</code> function that uses an attack of 20% to get from 0 to 1 and stay at 1 for the remainder of the beat
+* <code>adsr(0.2, 0.4, 0.5, 0.1)</code> function that uses an attack of 20% to get from 0 to 1, a decay of 40% to get to 0.5, stay for 30% of the time at that 0.5 and uses a release of 10% to get from 0.5 to 0.
+* <code>adsr(0.2, 0.4, 0.5, 0.1, 2)</code> similar as the previous one, but with an additional parameter for duration in beats. In this case to animate over 2 beats.
+* <code>adsr(0.2, 0.4, 0.5, 0.1, 2, 1)</code> similar as the previous one, but with an additional parameter for delay in beats. In this case delay of 1 beat.</p>
+<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your bpm object for clarity):
+* <code>.setBPM(120)</code> to change the amount of beats per minute for all calculations.
+* <code>.showInfoPanel()</code> to show the infopanel.
+* <code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
+* <code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
+* <code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work by default:
+  * <code>0</code> press once to reset timer, press multiple times to set the BPM to your 'press'-timing
+  * <code>-</code> lower bpm
+  * <code>+</code> raise bpm</p>
+<h2 id="examples">Examples</h2>
+<p>You can find all these examples in <code>Processing -&gt; File - Examples - Contributed Libraries - VJMotion - BPM</code>.</p>
+<table width="100%">
+
+  <tr>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/animatedSVG/animatedSVG.pde">animatedSVG</a><br><img src="assets/example-animatedsvg.gif" width="100%" alt="screenshot for example animatedSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/beatcount/beatcount.pde">beatCount</a><br><img src="assets/example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="assets/example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
+  </tr>
+   <tr>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/delay/delay.pde">delay</a><br><img src="assets/example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/metronome/metronome.pde">metronome</a><br><img src="assets/example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomColor/randomColor.pde">randomcolor</a><br><img src="assets/example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
+  </tr>
+  <tr>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="assets/example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="assets/example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/BPM_Timings/adsr/adsr.pde">adsr</a><br><img src="assets/example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
+  </tr>
+
+ </table>
 
 
 
@@ -483,28 +426,6 @@ guidance and time. This template has been developed in collaboration with
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="getting-started.html" class="md-footer__link md-footer__link--next" aria-label="Next: Get Started">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Get Started
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

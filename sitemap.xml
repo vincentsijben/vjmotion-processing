@@ -5,19 +5,23 @@
          <lastmod>2025-03-23</lastmod>
     </url>
     <url>
-         <loc>https://processing.github.io/processing-library-template/develop.html</loc>
+         <loc>https://processing.github.io/processing-library-template/arduinocontrols.html</loc>
+         <lastmod>2025-03-23</lastmod>
+    </url>
+    <url>
+         <loc>https://processing.github.io/processing-library-template/bpm.html</loc>
+         <lastmod>2025-03-23</lastmod>
+    </url>
+    <url>
+         <loc>https://processing.github.io/processing-library-template/contribute.html</loc>
+         <lastmod>2025-03-23</lastmod>
+    </url>
+    <url>
+         <loc>https://processing.github.io/processing-library-template/frequencyanalyzer.html</loc>
          <lastmod>2025-03-23</lastmod>
     </url>
     <url>
          <loc>https://processing.github.io/processing-library-template/getting-started.html</loc>
-         <lastmod>2025-03-23</lastmod>
-    </url>
-    <url>
-         <loc>https://processing.github.io/processing-library-template/release.html</loc>
-         <lastmod>2025-03-23</lastmod>
-    </url>
-    <url>
-         <loc>https://processing.github.io/processing-library-template/troubleshooting.html</loc>
          <lastmod>2025-03-23</lastmod>
     </url>
 </urlset>
