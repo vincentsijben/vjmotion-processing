@@ -49,19 +49,20 @@ The FrequencyAnalyzer class provides the following main functions:
 
 * `getAvgRaw(1)` returns non-normalized "raw" averaged amplitude for frequency band 1. The index ranges from 0 to logAverages(22, 3) which is 30 by default.
 
-  * `getAvgRawLeft(1)` same as getAvgRaw(1) but specific for the left channel.
-  * `getAvgRawRight(1)` same as getAvgRaw(1) but specific for the right channel.
+    * `getAvgRawLeft(1)` same as getAvgRaw(1) but specific for the left channel.
+    * `getAvgRawRight(1)` same as getAvgRaw(1) but specific for the right channel.
 
 todo:
 
 * `getBand(1)` returns the amplitude for frequency band 1. Used for a very specific and narrow frequency range. The index ranges from 0 to specSize().~~
-  * `getBandLeft(1)` same as getBand(1) but specific for the left channel.~~
-  * `getBandRight(1)` same as getBand(1) but specific for the right channel.~~
+    * `getBandLeft(1)` same as getBand(1) but specific for the left channel.~~
+    * `getBandRight(1)` same as getBand(1) but specific for the right channel.~~
 * `specSize()` returns the total amount of bands used. Typically 1025 ~~
 * `avgSize()` returns the total amount of bands used in the logAverages function. Typically 30~~
 * `getAudioBuffer()` returns the mixed (mono) audio buffer.~~
-  * `getLeftChannelBuffer()` returns the left audio buffer.~~
-  * `getRightChannelBuffer()` returns the right audio buffer.~~
+
+    * `getLeftChannelBuffer()` returns the left audio buffer.~~
+    * `getRightChannelBuffer()` returns the right audio buffer.~~
 
 
 You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your frequencyanalyzer object for clarity):
@@ -75,11 +76,10 @@ You can tweak the behaviour of this library with the following functions (you ca
 * `.setInfoPanelY(n)` to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
 * `.setInfoPanelKey('u')` to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
 * `.disableKeyPress()` to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:
-
-  * `CTRL + 1` switch to FILE mode
-  * `CTRL + 2` switch to MONO mode
-  * `CTRL + 3` switch to STEREO mode
-  * `CTRL + M` toggle monitoring on LINE_IN or MICROPHONE input
+    * `CTRL + 1` switch to FILE mode
+    * `CTRL + 2` switch to MONO mode
+    * `CTRL + 3` switch to STEREO mode
+    * `CTRL + M` toggle monitoring on LINE_IN or MICROPHONE input
 
 <!-- 
   * `CTRL + R` reset the max value
