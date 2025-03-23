@@ -486,19 +486,33 @@
 
 
 <h1 id="bpm-functions">BPM functions</h1>
-<p>The BeatsPerMinute class provides the following main functions:
-* <code>linear()</code> function that returns a normalized linear progress value from 0 to 1 for any given amount of beats, or with a given delay:
-  * <code>linear()</code> returns progress in 1 beat
-  * <code>linear(4)</code> returns progress in 4 beats
-  * <code>linear(4,3)</code> returns progress in 4 beats, with a delay of 3 beats
-* <code>ease()</code> same as <code>linear()</code> but does not use a linear progression but an 'eased' or 'smooth' one. Again, can be called without arguments, with 1 argument (duration in beats) or with two (duration and delay in beats).
-* <code>linearBounce()</code> same as <code>linear()</code> but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.
-* <code>easeBounce()</code> same as <code>ease()</code> but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.
-* <code>every[n]</code> boolean that returns true every n beats. Returns true for the duration of 1 beat. Limited to a max of 16 beats.
-* <code>every_once[n]</code> same as <code>every[n]</code> but now the boolean returns true for only 1 frame. Useful for changing a variable once every n beats.
-* <code>getBPM()</code> to return the current BPM.
-* <code>getBeatCount()</code> to return the current beatcount.
-* <code>getSurfaceTitle()</code> show information on BPM, beatCount and frameRate in your surface title. To be used in your main sketch like <code>surface.setTitle(bpm.getSurfaceTitle());</code></p>
+<p>The BeatsPerMinute class provides the following main functions:</p>
+<ul>
+<li>test1</li>
+<li>
+<p>test2</p>
+</li>
+<li>
+<p>test1</p>
+</li>
+<li>
+<p>test2</p>
+</li>
+<li>
+<p><code>linear()</code> function that returns a normalized linear progress value from 0 to 1 for any given amount of beats, or with a given delay:</p>
+</li>
+<li><code>linear()</code> returns progress in 1 beat</li>
+<li><code>linear(4)</code> returns progress in 4 beats</li>
+<li><code>linear(4,3)</code> returns progress in 4 beats, with a delay of 3 beats</li>
+<li><code>ease()</code> same as <code>linear()</code> but does not use a linear progression but an 'eased' or 'smooth' one. Again, can be called without arguments, with 1 argument (duration in beats) or with two (duration and delay in beats).</li>
+<li><code>linearBounce()</code> same as <code>linear()</code> but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.</li>
+<li><code>easeBounce()</code> same as <code>ease()</code> but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.</li>
+<li><code>every[n]</code> boolean that returns true every n beats. Returns true for the duration of 1 beat. Limited to a max of 16 beats.</li>
+<li><code>every_once[n]</code> same as <code>every[n]</code> but now the boolean returns true for only 1 frame. Useful for changing a variable once every n beats.</li>
+<li><code>getBPM()</code> to return the current BPM.</li>
+<li><code>getBeatCount()</code> to return the current beatcount.</li>
+<li><code>getSurfaceTitle()</code> show information on BPM, beatCount and frameRate in your surface title. To be used in your main sketch like <code>surface.setTitle(bpm.getSurfaceTitle());</code></li>
+</ul>
 <p>A more advanced progression function <code>adsr()</code> that uses attack, decay, sustain and release options to control the (linear) progression:
 * <code>adsr(0.2)</code> function that uses an attack of 20% to get from 0 to 1 and stay at 1 for the remainder of the beat
 * <code>adsr(0.2, 0.4, 0.5, 0.1)</code> function that uses an attack of 20% to get from 0 to 1, a decay of 40% to get to 0.5, stay for 30% of the time at that 0.5 and uses a release of 10% to get from 0.5 to 0.
