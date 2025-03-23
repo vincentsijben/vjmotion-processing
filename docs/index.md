@@ -10,5 +10,8 @@ This documentation provides information on
 2. [BPM functions](bpm.md)
 3. [Arduino Controls](arduinocontrols.md)
 4. [Frequency Analyzer](frequencyanalyzer.md)
-5. [Contribute](contribute.md)
+5. [Artist Ananya Samyt](ananya-samyt.md)
+6. [Artist Gogo](gogo.md)
+7. [Artist Triana y Luca](triana-y-luca.md)
+8. [Contribute](contribute.md)
 

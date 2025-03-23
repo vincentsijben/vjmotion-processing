@@ -6,4 +6,4 @@ During her Jazz studies at the Conservatorium Maastricht, she started **a fusion
 
 She will perform with a song from the new album she is working on right now called: “**Electronic&Analogue Frequencies**”, an experimentation of dance music with synths sounds, live instruments and her voice.
 
-![Ananya Samyt on Guitar](../assets/artist-ananya-samyt-guitar.jpeg)
+![Ananya Samyt on Guitar](./artist-ananya-samyt-guitar.jpeg)

@@ -3,4 +3,4 @@ Gogo is a Bulgarian artist, raised in Brussels, based in Maastricht. Inspired by
 
 [Spotify](https://open.spotify.com/track/6hMdwlYRCJzbq3UlLdt3S2?si=wV7T5urrRIWbCKD2dsHkNw)
 
-![Gogo image from Spotify](../assets/artist-gogo-spotify.jpeg)
+![Gogo image from Spotify](./artist-gogo-spotify.jpeg)
