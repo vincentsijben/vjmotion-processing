@@ -8,6 +8,11 @@ You could animate (grow or shrink) shapes in any amount of beats, or delay shrin
 ### Context
 This library was originally created in 2023 for the Maastricht Institute of Arts - GenArt exposition. Students were showcasing their generative art work that could be controlled with a custom built Arduino controller. The work was BPM based; a live band performed on stage while students acted as VJ's, controlling their own digital work through the Arduino controller. For the exposition and performance of 2024, this library was expanded with 2 additional classes: [ArduinoControls](ArduinoControls.md) and [FrequencyAnalyzer](FrequencyAnalyzer.md).
 
+https://vimeo.com/911124908/735f46dc5b?share=copy
+
+https://vimeo.com/1013689471/da1bcb3048?share=copy
+
+
 Students collaborated with several artists. Click the thumbnail for more information:
 
 <table width="100%">
@@ -20,7 +25,7 @@ Students collaborated with several artists. Click the thumbnail for more informa
 
 
 ## How to install
-Install the library by downloading the latest release through the Processing contribution manager: go to `Processing > Sketch > Import Library... > Manage Libraries...` and search for "VJMotion" and click install.
+Install the library by downloading the latest release through the Processing contribution manager: go to `Processing > Sketch > Import Library... > Manage Libraries...` , search for "VJMotion" and click install.
 
 ## Usage
 
