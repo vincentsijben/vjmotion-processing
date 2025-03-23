@@ -74,7 +74,7 @@ You can tweak the behaviour of this library with the following functions (you ca
 
 
 ## Examples
-You can find all these examples in `Processing -> File - Examples - Contributed Libraries - BPM timings - ArduinoControls`.
+You can find all these examples in `Processing -> File - Examples - Contributed Libraries - VJMotion - ArduinoControls`.
 
 <table width="100%">
   <tr>
