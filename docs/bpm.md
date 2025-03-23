@@ -4,10 +4,25 @@ The BeatsPerMinute class provides the following main functions:
 
 * `linear()` function that returns a normalized linear progress value from 0 to 1 for any given amount of beats, or with a given delay:
 
-  * `linear()` returns progress in 1 beat
-  * `linear(4)` returns progress in 4 beats
-  * `linear(4,3)` returns progress in 4 beats, with a delay of 3 beats
-  
+    * `linear()` returns progress in 1 beat
+    * `linear(4)` returns progress in 4 beats
+    * `linear(4,3)` returns progress in 4 beats, with a delay of 3 beats
+
+* dscdscds
+  * cdscsdcsd
+  * csdcsdcsdcsd
+
+- csdcsdcsdcsd
+  * cdscsdcsd
+  * cdscsdcsd
+
+- cdscsdcdscds
+
+  * cdscsdcscsd
+  * cdscsdcdscsd
+
+- dsadsadsa
+
 * `ease()` same as `linear()` but does not use a linear progression but an 'eased' or 'smooth' one. Again, can be called without arguments, with 1 argument (duration in beats) or with two (duration and delay in beats).
 * `linearBounce()` same as `linear()` but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.
 * `easeBounce()` same as `ease()` but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.
