@@ -19,9 +19,9 @@ Students collaborated with several artists. Click the thumbnail for more informa
 
 <table width="100%">
   <tr>
-    <td valign="top" align="center" width="33%"><a href="context/triana-y-luca.md">Triana y Luca<br><img src="assets/artist-triana-y-luca.jpeg" width="100%" alt="Artist Triana y Luca" /></a></td>
-    <td valign="top" align="center" width="33%"><a href="context/ananya-samyt.md">Ananya Samyt<br><img src="assets/artist-ananya-samyt.jpg" width="100%" alt="Artist Ananya Samyt" /></a></td>
-    <td valign="top" align="center" width="33%"><a href="context/gogo.md">Gogo<br><img src="assets/artist-gogo.jpg" width="100%" alt="Artist Gogo" /></a></td>
+    <td valign="top" align="center" width="33%"><a href="https://vincentsijben.github.io/vjmotion-processing/triana-y-luca.html">Triana y Luca<br><img src="assets/artist-triana-y-luca.jpeg" width="100%" alt="Artist Triana y Luca" /></a></td>
+    <td valign="top" align="center" width="33%"><a href="https://vincentsijben.github.io/vjmotion-processing/ananya-samyt.html">Ananya Samyt<br><img src="assets/artist-ananya-samyt.jpg" width="100%" alt="Artist Ananya Samyt" /></a></td>
+    <td valign="top" align="center" width="33%"><a href="https://vincentsijben.github.io/vjmotion-processing/gogo.html">Gogo<br><img src="assets/artist-gogo.jpg" width="100%" alt="Artist Gogo" /></a></td>
   </tr>
  </table>
 
