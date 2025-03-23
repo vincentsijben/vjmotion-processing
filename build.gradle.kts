@@ -27,13 +27,13 @@ java {
 // Such as:
 // <libName>.jar will be the name of your build jar
 // <libName>.zip will be the name of your release file
-val libName = "myLibrary"
+val libName = "VJMotion"
 
 // The group ID of your library, which uniquely identifies your project.
 // It's often written in reverse domain name notation.
 // For example, if your website is "myDomain.com", your group ID would be "com.myDomain".
 // Replace "com.myDomain" with your own domain or organization name.
-group = "com.myDomain"
+group = "nl.genart"
 
 // The version of your library. It usually follows semantic versioning (semver),
 // which uses three numbers separated by dots: "MAJOR.MINOR.PATCH" (e.g., "1.0.0").
@@ -41,7 +41,7 @@ group = "com.myDomain"
 // - MINOR: Increases when you add new features that are backward-compatible.
 // - PATCH: Increases when you make backward-compatible bug fixes.
 // You can update these numbers as you release new versions of your library.
-version = "1.0.0"
+version = "0.0.1"
 
 // The location of your sketchbook folder. The sketchbook folder holds your installed
 // libraries, tools, and modes. It is needed if you:
@@ -77,7 +77,7 @@ if(currentOS.isMacOsX) {
 }
 // If you need to set the sketchbook location manually, uncomment out the following
 // line and set sketchbookLocation to the correct location
-// sketchbookLocation = "$userHome/sketchbook"
+sketchbookLocation = "$userHome/Docs/processing"
 
 
 // Repositories where dependencies will be fetched from.
@@ -96,6 +96,7 @@ dependencies {
     // insert your external dependencies
     // For example uncomment the following line to declare commons-math3 as a dependency.
     // implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
+    implementation(fileTree("src/main/java/libraries"))
 
     // To add a dependency on a Processing library that is installed locally,
     // uncomment the line below, and replace <library folder> with the location of that library
@@ -256,18 +257,25 @@ tasks.register("deployToProcessingSketchbook") {
     group = "processing"
     dependsOn("buildReleaseArtifacts")
 
-    doFirst {
-        println("Copy to sketchbook  $sketchbookLocation ...")
-    }
-    val installDirectory = "$sketchbookLocation/libraries/$libName"
-    copy {
-        from(releaseDirectory)
-        include("library.properties",
-            "examples/**",
-            "library/**",
-            "reference/**",
-            "src/**"
-        )
-        into(installDirectory)
+    val installDirectory = file("$sketchbookLocation/libraries/$libName")
+
+    doLast {
+   
+        println("Removing old install from $installDirectory")
+        delete(installDirectory)
+    
+        println("Copying fresh build to sketchbook $sketchbookLocation...")
+        project.copy {
+            from(releaseDirectory) {
+                include(
+                    "library.properties",
+                    "examples/**",
+                    "library/**",
+                    "reference/**",
+                    "src/**"
+                )
+            }
+            into(installDirectory)
+        }
     }
 }

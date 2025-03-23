@@ -39,7 +39,7 @@ bin/
 /.nb-gradle/
 
 ### VS Code ###
-.vscode/
+# .vscode/
 
 ### Mac OS ###
 .DS_Store
@@ -58,6 +58,7 @@ bin/
 
 # Package Files #
 *.jar
+!src/main/java/libraries/*.jar
 *.war
 *.nar
 *.ear
