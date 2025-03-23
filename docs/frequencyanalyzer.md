@@ -48,6 +48,7 @@ void draw() {
 The FrequencyAnalyzer class provides the following main functions:
 
 * `getAvgRaw(1)` returns non-normalized "raw" averaged amplitude for frequency band 1. The index ranges from 0 to logAverages(22, 3) which is 30 by default.
+
   * `getAvgRawLeft(1)` same as getAvgRaw(1) but specific for the left channel.
   * `getAvgRawRight(1)` same as getAvgRaw(1) but specific for the right channel.
 
@@ -74,6 +75,7 @@ You can tweak the behaviour of this library with the following functions (you ca
 * `.setInfoPanelY(n)` to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
 * `.setInfoPanelKey('u')` to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
 * `.disableKeyPress()` to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:
+
   * `CTRL + 1` switch to FILE mode
   * `CTRL + 2` switch to MONO mode
   * `CTRL + 3` switch to STEREO mode

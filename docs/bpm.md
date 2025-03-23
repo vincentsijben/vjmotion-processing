@@ -8,21 +8,6 @@ The BeatsPerMinute class provides the following main functions:
     * `linear(4)` returns progress in 4 beats
     * `linear(4,3)` returns progress in 4 beats, with a delay of 3 beats
 
-* dscdscds
-  * cdscsdcsd
-  * csdcsdcsdcsd
-
-- csdcsdcsdcsd
-  * cdscsdcsd
-  * cdscsdcsd
-
-- cdscsdcdscds
-
-  * cdscsdcscsd
-  * cdscsdcdscsd
-
-- dsadsadsa
-
 * `ease()` same as `linear()` but does not use a linear progression but an 'eased' or 'smooth' one. Again, can be called without arguments, with 1 argument (duration in beats) or with two (duration and delay in beats).
 * `linearBounce()` same as `linear()` but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.
 * `easeBounce()` same as `ease()` but goes from 0 to 1 to 0 in the same amount of time. Useful for shrinking or growing of visuals.
@@ -57,19 +42,19 @@ You can find all these examples in `Processing -> File - Examples - Contributed 
 <table width="100%">
 
   <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/animatedSVG/animatedSVG.pde">animatedSVG</a><br><img src="./example-animatedsvg.gif" width="100%" alt="screenshot for example animatedSVG" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/beatcount/beatcount.pde">beatCount</a><br><img src="./example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="./example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/animatedSVG/animatedSVG.pde">animatedSVG</a><br><img src="./example-animatedsvg.gif" width="100%" alt="screenshot for example animatedSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/VJMotion/beatcount/beatcount.pde">beatCount</a><br><img src="./example-beatcount.gif" width="100%" alt="screenshot for example beatCount" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/VJMotion/colorPalettes/colorPalettes.pde">animatedSVG</a><br><img src="./example-colorpalettes.gif" width="100%" alt="screenshot for example colorPalettes" /></td>
   </tr>
    <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/delay/delay.pde">delay</a><br><img src="./example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/metronome/metronome.pde">metronome</a><br><img src="./example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/randomColor/randomColor.pde">randomcolor</a><br><img src="./example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/VJMotion/delay/delay.pde">delay</a><br><img src="./example-delay.gif" width="100%" alt="screenshot for example delay" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/VJMotion/metronome/metronome.pde">metronome</a><br><img src="./example-metronome.gif" width="100%" alt="screenshot for example metronome" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/VJMotion/randomColor/randomColor.pde">randomcolor</a><br><img src="./example-randomcolor.gif" width="100%" alt="screenshot for example randomcolor" /></td>
   </tr>
   <tr>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="./example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="./example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
-    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/bpm-timings-for-processing/blob/master/examples/VJMotion/adsr/adsr.pde">adsr</a><br><img src="./example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/VJMotion/randomGridSpots/randomGridSpots.pde">randomGridSpots</a><br><img src="./example-randomgridspots.gif" width="100%" alt="screenshot for example randomGridSpots" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/VJMotion/rotatingSVG/rotatingSVG.pde">rotatingSVG</a><br><img src="./example-rotatingsvg.gif" width="100%" alt="screenshot for example rotatingSVG" /></td>
+    <td valign="top" align="center" width="33%"><a href="https://github.com/vincentsijben/vjmotion-processing/blob/main/BPM/VJMotion/adsr/adsr.pde">adsr</a><br><img src="./example-adsr.gif" width="100%" alt="screenshot for example adsr" /></td>
   </tr>
  
  </table>
