@@ -96,7 +96,7 @@ dependencies {
     // insert your external dependencies
     // For example uncomment the following line to declare commons-math3 as a dependency.
     // implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
-    implementation(fileTree("src/main/java/libraries"))
+    compileOnly(fileTree("src/main/java/libraries"))
 
     // To add a dependency on a Processing library that is installed locally,
     // uncomment the line below, and replace <library folder> with the location of that library
