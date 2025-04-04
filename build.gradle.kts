@@ -18,6 +18,21 @@ java {
     }
 }
 
+// read in user-defined properties in release.properties file
+// most of these properties will be saved to the library.properties file, a required file in the release
+// using task writeLibraryProperties
+val libraryProperties = Properties().apply {
+    load(rootProject.file("release.properties").inputStream())
+}
+
+// the following conditional allows for the version to be overwritten by a Github release
+// via the release workflow, which defines a property named "githubReleaseTag"
+version = if (project.hasProperty("githubReleaseTag")) {
+    // remove leading "v" from tag (the leading "v" is required for the release workflow to trigger)
+    project.property("githubReleaseTag").toString().drop(1)
+} else {
+    libraryProperties.getProperty("prettyVersion")
+}
 
 //==========================
 // USER BUILD CONFIGURATIONS
@@ -34,14 +49,6 @@ val libName = "VJMotion"
 // For example, if your website is "myDomain.com", your group ID would be "com.myDomain".
 // Replace "com.myDomain" with your own domain or organization name.
 group = "nl.genart"
-
-// The version of your library. It usually follows semantic versioning (semver),
-// which uses three numbers separated by dots: "MAJOR.MINOR.PATCH" (e.g., "1.0.0").
-// - MAJOR: Increases when you make incompatible changes.
-// - MINOR: Increases when you add new features that are backward-compatible.
-// - PATCH: Increases when you make backward-compatible bug fixes.
-// You can update these numbers as you release new versions of your library.
-version = "0.0.3"
 
 // The location of your sketchbook folder. The sketchbook folder holds your installed
 // libraries, tools, and modes. It is needed if you:
@@ -96,7 +103,11 @@ dependencies {
     // insert your external dependencies
     // For example uncomment the following line to declare commons-math3 as a dependency.
     // implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
-    compileOnly(fileTree("src/main/java/libraries"))
+    compileOnly(files(
+      "src/main/java/libraries/minim.jar",
+      "src/main/java/libraries/arduino.jar"
+    ))
+
 
     // To add a dependency on a Processing library that is installed locally,
     // uncomment the line below, and replace <library folder> with the location of that library
@@ -105,6 +116,8 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
+
+
 
 tasks.test {
     useJUnitPlatform()
@@ -139,13 +152,6 @@ tasks.test {
 val releaseRoot = "$rootDir/release"
 val releaseName = libName
 val releaseDirectory = "$releaseRoot/$releaseName"
-
-// read in user-defined properties in release.properties file
-// to be saved in library.properties file, a required file in the release
-// using task writeLibraryProperties
-val libraryProperties = Properties().apply {
-    load(rootProject.file("release.properties").inputStream())
-}
 
 tasks.register<WriteProperties>("writeLibraryProperties") {
     group = "processing"
@@ -257,24 +263,26 @@ tasks.register("deployToProcessingSketchbook") {
     group = "processing"
     dependsOn("buildReleaseArtifacts")
 
-    val installDirectory = file("$sketchbookLocation/libraries/$libName")
+    doFirst {
+        println("Copy to sketchbook  $sketchbookLocation ...")
+    }
 
     doLast {
-   
-        println("Removing old install from $installDirectory")
+        val installDirectory = file("$sketchbookLocation/libraries/$libName")
+
+        println("Removing old install from: $installDirectory")
         delete(installDirectory)
-    
-        println("Copying fresh build to sketchbook $sketchbookLocation...")
-        project.copy {
-            from(releaseDirectory) {
-                include(
-                    "library.properties",
-                    "examples/**",
-                    "library/**",
-                    "reference/**",
-                    "src/**"
-                )
-            }
+
+        println("Copying fresh build to sketchbook $sketchbookLocation ...")
+        copy {
+            from(releaseDirectory)
+            include(
+                "library.properties",
+                "examples/**",
+                "library/**",
+                "reference/**",
+                "src/**"
+            )
             into(installDirectory)
         }
     }

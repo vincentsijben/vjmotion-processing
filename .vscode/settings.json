@@ -7,5 +7,10 @@
                 "workingDirectory": "${workspaceFolder}"
             }
         ]
-    }
+    },
+    "java.classPath": [
+        "/Applications/Processing.app/Contents/Java/core/library/core.jar",
+        "/Users/vincent.sijben/Docs/Processing/libraries/minim/library/minim.jar",
+        "/Users/vincent.sijben/Docs/Processing/libraries/arduino/library/arduino.jar"
+    ]
 }
