@@ -9,17 +9,22 @@ I invite you to contribute to this library in all means. Please do send bug repo
 ## Dev environment
 I made some notes on what I did to set up my development environment in VSCode (MacOS). You can follow these steps to get this project running locally.
 
-1. Goto https://git-scm.com/downloads/mac and install homebrew. Check the output at the end to run 3 commands after finished. 
-2. Install git
-3. Run in terminal:
-`git config --global user.name "Vincent Sijben"`
-`git config --global user.email vincent.sijben@zuyd.nl`
-3. Install [VSCode](https://code.visualstudio.com/)
-4. Install VSCode extension [java language support](https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac) + [extension pack for java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) + [run on save](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave)
-5. Install VSCode extension [gradle for java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) + install openJDK (follow the link [Java from 8 to 21](https://adoptium.net) in the requirements.
-6. Check you java version in the terminal: `/usr/libexec/java_home -V`
-7. Set the JAVA_HOME environment variable by running in the terminal: `export JAVA_HOME=$(/usr/libexec/java_home -v17)`
-8. In VSCode press CMD+SHIFT+P to open up the command pallette and type clone and put in `https://github.com/vincentsijben/vjmotion-processing`
+1. Install [Homebrew](https://brew.sh/). Check the output at the end to run 3 commands after finished. 
+2. Install [git](https://git-scm.com/downloads/mac).
+3. Set the Git username and email. Run in terminal:
+```
+git config --global user.name "Vincent Sijben"
+git config --global user.email vincent.sijben@zuyd.nl
+```
+3. Install [VSCode](https://code.visualstudio.com/).
+4. Install VSCode extension [java language support](https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac) + [extension pack for java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) + [run on save](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave).
+5. Install VSCode extension [gradle for java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) + install openJDK (follow the link [Java from 8 to 21](https://adoptium.net) in the requirements).
+6. Check your Java version in the terminal: `/usr/libexec/java_home -V`
+7. Set the JAVA_HOME environment variable by running in the terminal: 
+```
+export JAVA_HOME=$(/usr/libexec/java_home -v17)
+```
+8. In VSCode press CMD+SHIFT+P to open up the command pallette and type *git:clone* and put in *https://github.com/vincentsijben/vjmotion-processing*
 
 ## Personal notes for the previous "Ant" approach
 I've copied `library.properties` to the root and called it `library.properties.example` so I could see the original comments for the file. In `resources\library.properties` I've removed all comments, so the generated `distribution\...\.txt` file is clean and simple.
