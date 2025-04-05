@@ -429,6 +429,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dev-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dev environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#personal-notes-for-the-previous-ant-approach" class="md-nav__link">
     <span class="md-ellipsis">
       Personal notes for the previous "Ant" approach
@@ -505,6 +514,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dev-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dev environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#personal-notes-for-the-previous-ant-approach" class="md-nav__link">
     <span class="md-ellipsis">
       Personal notes for the previous "Ant" approach
@@ -564,11 +582,26 @@
 
 <h1 id="contribute">Contribute</h1>
 <p>This library was based on the official <a href="https://github.com/processing/processing-library-template">Processing Library Template</a> which is based on Gradle. The previous version (called BPM_Timings) was based on an older Ant Template.</p>
-<p>I invite you to contribute to this library in all means. Please do send bug reports or give any usable feedback!</p>
+<p>I invite you to contribute to this library in all means. Please do send bug reports or give any usable feedback through the <a href="https://github.com/vincentsijben/vjmotion-processing/issues">issues</a>!</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>I changed several things from the original template. I made some Pull Requests, so I hope they will be accepted soon.</p>
 </div>
+<h2 id="dev-environment">Dev environment</h2>
+<p>I made some notes on what I did to set up my development environment in VSCode (MacOS). You can follow these steps to get this project running locally.</p>
+<ol>
+<li>Goto https://git-scm.com/downloads/mac and install homebrew. Check the output at the end to run 3 commands after finished. </li>
+<li>Install git</li>
+<li>Run in terminal:
+<code>git config --global user.name "Vincent Sijben"</code>
+<code>git config --global user.email vincent.sijben@zuyd.nl</code></li>
+<li>Install <a href="https://code.visualstudio.com/">VSCode</a></li>
+<li>Install VSCode extension <a href="https://marketplace.visualstudio.com/items?itemName=georgewfraser.vscode-javac">java language support</a> + <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack">extension pack for java</a> + <a href="https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave">run on save</a></li>
+<li>Install VSCode extension <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle">gradle for java</a> + install openJDK (follow the link <a href="https://adoptium.net">Java from 8 to 21</a> in the requirements.</li>
+<li>Check you java version in the terminal: <code>/usr/libexec/java_home -V</code></li>
+<li>Set the JAVA_HOME environment variable by running in the terminal: <code>export JAVA_HOME=$(/usr/libexec/java_home -v17)</code></li>
+<li>In VSCode press CMD+SHIFT+P to open up the command pallette and type clone and put in <code>https://github.com/vincentsijben/vjmotion-processing</code></li>
+</ol>
 <h2 id="personal-notes-for-the-previous-ant-approach">Personal notes for the previous "Ant" approach</h2>
 <p>I've copied <code>library.properties</code> to the root and called it <code>library.properties.example</code> so I could see the original comments for the file. In <code>resources\library.properties</code> I've removed all comments, so the generated <code>distribution\...\.txt</code> file is clean and simple.</p>
 <h3 id="update-test-and-release">Update, test and release</h3>
