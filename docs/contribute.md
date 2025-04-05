@@ -24,7 +24,7 @@ git config --global user.email vincent.sijben@zuyd.nl
 ```
 export JAVA_HOME=$(/usr/libexec/java_home -v17)
 ```
-8. In VSCode press CMD+SHIFT+P to open up the command pallette and type *git:clone* and put in *https://github.com/vincentsijben/vjmotion-processing*
+8. In VSCode press CMD+SHIFT+P to open up the command pallette and type **git:clone** and put in **https://github.com/vincentsijben/vjmotion-processing**
 
 ## Personal notes for the previous "Ant" approach
 I've copied `library.properties` to the root and called it `library.properties.example` so I could see the original comments for the file. In `resources\library.properties` I've removed all comments, so the generated `distribution\...\.txt` file is clean and simple.

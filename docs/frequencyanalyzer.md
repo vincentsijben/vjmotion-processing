@@ -80,14 +80,14 @@ You can tweak the behaviour of this library with the following functions (you ca
 * `.setInfoPanelKey('u')` to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
 * `.disableKeyPress()` to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:
 
-    * `CTRL + 1` switch to FILE mode
-    * `CTRL + 2` switch to MONO mode
-    * `CTRL + 3` switch to STEREO mode
-    * `CTRL + M` toggle monitoring on LINE_IN or MICROPHONE input
+    * `F1` switch to FILE mode
+    * `F2` switch to MONO mode
+    * `F3` switch to STEREO mode
+    * `F4` toggle monitoring on LINE_IN or MICROPHONE input
 
 
 <!-- 
-  * `CTRL + R` reset the max value
+  * `F5` reset the max value
 * `getAvg(2)` function that returns normalized value of the frequency band with index 2. The normalization mapping is done by continuously checking the highest overall amplitude.
 * `getAvg(2, 150)` function that returns normalized value of the frequency band with index 2, mapped with a max value of 150.
 * `resetMaxValue()` function that resets the overall max value (to 0.1f).
