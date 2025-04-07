@@ -1,6 +1,6 @@
 /**
  * genart heart
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * This example requires a connected Arduino board with:
  * a pushbutton at digital pin 8
@@ -44,7 +44,7 @@ public void setup() {
   minim = new Minim(this);
   fa = new FrequencyAnalyzer(this)
     .addMinim(minim)
-    .setFile("https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/Ananya_-_Mornings_in_Love.mp3")
+    .setFile("https://github.com/vincentsijben/vjmotion-processing/raw/main/assets/Ananya_-_Mornings_in_Love.mp3")
     .setAudioInputMode(AudioInputMode.AUDIO_FILE)
     .setInfoPanelKey('o')
     ;

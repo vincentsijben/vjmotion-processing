@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import nl.genart.VJMotion.InfoPanel;
 import processing.core.*;
 import processing.event.KeyEvent;
-// import bpm.library.InfoPanel;
 
 public class ArduinoControls {
 

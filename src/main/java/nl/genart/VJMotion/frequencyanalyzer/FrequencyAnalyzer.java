@@ -40,7 +40,7 @@ public class FrequencyAnalyzer {
     this.startTime = 0;
     this.maxVal = 0.1f; // avoid NaN when using maxVal in map() in the first frame.
     this.bufferSize = 1024;
-    this.file = "https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3"; // default
+    this.file = "https://github.com/vincentsijben/vjmotion-processing/raw/main/assets/infraction_music_-_ritmo.mp3"; // default
 
     parent.registerMethod("draw", this);
     parent.registerMethod("pre", this);
@@ -109,7 +109,7 @@ public class FrequencyAnalyzer {
           System.out.println("no audio file was set");
 
         // currentInputSource = new AudioFileInputSource(minim,
-        // "https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3");
+        // "https://github.com/vincentsijben/vjmotion-processing/raw/main/assets/infraction_music_-_ritmo.mp3");
         // // Assuming an AudioFileSource class exists
         currentInputSource = new AudioFileInputSource(minim, size, this.file); // Assuming an AudioFileSource class
                                                                                // exists
@@ -225,7 +225,8 @@ public class FrequencyAnalyzer {
 
 
   private float[] rollingMaxLevels; // stores max per band
-  private float decayRate = 0.9995f; // slow decay for live input
+  // private float decayRate = 0.9995f; // slow decay for live input
+  private float decayRate = 0.999995f;
   
 /**
  * Returns the normalized volume (0 to 1) of a logarithmic frequency band.
@@ -413,8 +414,8 @@ public float getVolume() {
           h = PApplet.constrain(h, -100, 0);
           overlay.rect(xR + overlay.width / this.avgSize() / 2, yR, overlay.width / this.avgSize() / 2, h);
         } else {
-          float h = PApplet.lerp(0, -100, this.getAvgRaw(i));
-          h = PApplet.constrain(h, -100, 0);
+          float h = PApplet.lerp(0, -100, this.getVolume(i));
+          // h = PApplet.constrain(h, -100, 0);
           overlay.rect(xR, yR, overlay.width / this.avgSize(), h);
         }
 
