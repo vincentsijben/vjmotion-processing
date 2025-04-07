@@ -57,7 +57,7 @@ You can tweak the behaviour of this library with the following functions (you ca
 * `.addLED(10, LEDMode.PWM)` to add an LED to the class at digital port 10 as a PWM connected LED. The LEDMode argument is optional (default is `LEDMode.DIGITAL`).
 * `.addPushButton(7, '1', Arduino.LOW)` to add a pushbutton to the class at digital port 7, that is controllable with the keyboard key '1' when not connected and has a value of Arduino.LOW when pressed. All three arguments are mandatory.
 * `.addPotentiometer(0, 'q')` to add a potentiometer to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'q'. Both arguments are mandatory.
-* `.addLDR(0, 'w')` to add a LDR sensor to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'w'. Both arguments are mandatory.
+* `.addLDR(0, 'w', 20, 370)` to add a LDR sensor to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'w' and has a minimum value of 20 and maximum value of 370. All arguments are mandatory.
 * `.showInfoPanel()` to show the infopanel.
 * `.setInfoPanelY(n)` to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
 * `.setInfoPanelKey('u')` to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
