@@ -352,6 +352,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -514,6 +532,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       Examples
@@ -553,7 +589,7 @@ Students create sketches that react in realtime to audio input (line-in, audio f
 </ul>
 <h2 id="usage">Usage</h2>
 <div class="highlight"><pre><span></span><code>// Import the library to your sketch
-import bpm.library.frequencyanalyzer.*;
+import nl.genart.VJMotion.frequencyanalyzer.*;
 
 // Import the minim library
 import ddf.minim.*;
@@ -568,7 +604,7 @@ void setup() {
   minim = new Minim(this);
   fa = new FrequencyAnalyzer(this)
     .addMinim(minim)
-    .setFile(&quot;https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3&quot;)
+    .setFile(&quot;https://github.com/vincentsijben/vjmotion-processing/raw/main/assets/infraction_music_-_ritmo.mp3&quot;)
     .setAudioInputMode(AudioInputMode.AUDIO_FILE)
     ;
 }
@@ -576,13 +612,42 @@ void setup() {
 void draw() {
   background(50);
 
-  circle(width/4*1, height/2, fa.getAvgRaw(0));
-  circle(width/4*2, height/2, fa.getAvgRaw(10));
-  circle(width/4*3, height/2, fa.getAvgRaw(20));
+  circle(width/4*1, height/2, fa.getVolume(0));
+  circle(width/4*2, height/2, fa.getVolume(10));
+  circle(width/4*3, height/2, fa.getVolume(20));
+  circle(width/4*2, height/4*3, fa.getVolume()); // averaged overall volume
 }
 </code></pre></div>
+<h2 id="setup">Setup</h2>
+<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your frequencyanalyzer object for clarity):</p>
+<ul>
+<li><code>.addMinim(minim)</code> mandatory to add the global minim object to the class.</li>
+<li><code>.setFile("example.mp3")</code> to set the file for the audioplayer. Defaults to "https://github.com/vincentsijben/vjmotion-processing/raw/main/assets/infraction_music_-_ritmo.mp3"</li>
+<li><code>.setAudioInputMode(AudioInputMode.AUDIO_FILE)</code> to set the input mode to AudioInputMode.AUDIO_FILE. You can also set it to AudioInputMode.LINE_IN or AudioInputMode.MICROPHONE. Defaults to AudioInputMode.MICROPHONE. </li>
+<li><code>.setAudioInputMode(AudioInputMode.AUDIO_FILE, n)</code> same as previous one, but you can also set the bufferSize. Needs to be a power of 2. A lower amount results in less audio resolution and decreases delay . Defaults to 1024.</li>
+<li><code>.setAudioOutputMode(AudioOutputMode.STEREO)</code> to set the output mode to AudioOutputMode.STEREO. Defaults to AudioOutputMode.MONO. Use it to get access to both left and right channel analysis.</li>
+<li><code>.showInfoPanel()</code> to show the infopanel.</li>
+<li><code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.</li>
+<li><code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.</li>
+<li>
+<p><code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:</p>
+<ul>
+<li><code>F1</code> switch to FILE mode</li>
+<li><code>F2</code> switch to MONO mode</li>
+<li><code>F3</code> switch to STEREO mode</li>
+<li><code>F4</code> toggle monitoring on LINE_IN or MICROPHONE input</li>
+</ul>
+</li>
+</ul>
+<h2 id="functions">Functions</h2>
 <p>The FrequencyAnalyzer class provides the following main functions:</p>
 <ul>
+<li>
+<p><code>getVolume()</code> returns the normalized averaged amplitude for all frequencies combined.</p>
+</li>
+<li>
+<p><code>getVolume(20)</code> returns normalized amplitude for frequency band 20. The (zero-based) index ranges from 0 to logAverages(22, 3) which is 30 by default.</p>
+</li>
 <li>
 <p><code>getAvgRaw(1)</code> returns non-normalized "raw" averaged amplitude for frequency band 1. The index ranges from 0 to logAverages(22, 3) which is 30 by default.</p>
 <ul>
@@ -609,26 +674,6 @@ void draw() {
 <ul>
 <li><code>getLeftChannelBuffer()</code> returns the left audio buffer.~~</li>
 <li><code>getRightChannelBuffer()</code> returns the right audio buffer.~~</li>
-</ul>
-</li>
-</ul>
-<p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your frequencyanalyzer object for clarity):</p>
-<ul>
-<li><code>.addMinim(minim)</code> mandatory to add the global minim object to the class.</li>
-<li><code>.setFile("example.mp3")</code> to set the file for the audioplayer. Defaults to "https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3"</li>
-<li><code>.setAudioInputMode(AudioInputMode.AUDIO_FILE)</code> to set the input mode to AudioInputMode.AUDIO_FILE. You can also set it to AudioInputMode.LINE_IN or AudioInputMode.MICROPHONE. Defaults to AudioInputMode.MICROPHONE. </li>
-<li><code>.setAudioInputMode(AudioInputMode.AUDIO_FILE, n)</code> same as previous one, but you can also set the bufferSize. Needs to be a power of 2. A lower amount results in less audio resolution and decreases delay . Defaults to 1024.</li>
-<li><code>.setAudioOutputMode(AudioOutputMode.STEREO)</code> to set the output mode to AudioOutputMode.STEREO. Defaults to AudioOutputMode.MONO. Use it to get access to both left and right channel analysis.</li>
-<li><code>.showInfoPanel()</code> to show the infopanel.</li>
-<li><code>.setInfoPanelY(n)</code> to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.</li>
-<li><code>.setInfoPanelKey('u')</code> to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.</li>
-<li>
-<p><code>.disableKeyPress()</code> to disable listening for keypresses. If you don't disable keypresses, then these keypresses will work:</p>
-<ul>
-<li><code>F1</code> switch to FILE mode</li>
-<li><code>F2</code> switch to MONO mode</li>
-<li><code>F3</code> switch to STEREO mode</li>
-<li><code>F4</code> toggle monitoring on LINE_IN or MICROPHONE input</li>
 </ul>
 </li>
 </ul>
