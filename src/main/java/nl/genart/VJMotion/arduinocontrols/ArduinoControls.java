@@ -26,9 +26,9 @@ public class ArduinoControls {
   private InfoPanel infoPanel;
 
   private boolean enableKeyPress;
-  private ArrayList <PushButton> pushbuttons;
-  private ArrayList <Potentiometer> potentiometers;
-  private ArrayList <LED> leds;
+  private ArrayList<PushButton> pushbuttons;
+  private ArrayList<Potentiometer> potentiometers;
+  private ArrayList<LED> leds;
   private int lastFrameCount;
 
   public ArduinoControls(PApplet parent) {
@@ -40,7 +40,7 @@ public class ArduinoControls {
     this.enableKeyPress = true;
     this.lastFrameCount = -1;
 
-    //https://github.com/benfry/processing4/wiki/Library-Basics
+    // https://github.com/benfry/processing4/wiki/Library-Basics
     parent.registerMethod("draw", this);
     parent.registerMethod("pre", this);
     parent.registerMethod("post", this);
@@ -52,17 +52,8 @@ public class ArduinoControls {
     return this;
   }
 
-
-
-
-
-
-
-
-
-
   //////////////////////////////////////////////////////////////
-  //                    LED
+  // LED
   //////////////////////////////////////////////////////////////
   public ArduinoControls addLED(int pinNumber) {
     return this.addLED(pinNumber, LEDMode.DIGITAL);
@@ -78,10 +69,13 @@ public class ArduinoControls {
     if (index >= 0 && index < this.leds.size()) {
       LED led = this.leds.get(index);
 
-      if (led.mode == LEDMode.PWM) this.setLED(index, 255);
-      else this.setLED(index, Arduino.HIGH);
+      if (led.mode == LEDMode.PWM)
+        this.setLED(index, 255);
+      else
+        this.setLED(index, Arduino.HIGH);
     } else {
-      System.out.println("warning: index " + index + " was used which is out of bounds for the ArrayList leds with size " + leds.size());
+      System.out.println("warning: index " + index
+          + " was used which is out of bounds for the ArrayList leds with size " + leds.size());
     }
   }
 
@@ -96,28 +90,21 @@ public class ArduinoControls {
         led.value = value;
         if (this.arduino != null) {
 
-          if (led.mode == LEDMode.PWM) this.arduino.analogWrite(led.digitalPort, value);
+          if (led.mode == LEDMode.PWM)
+            this.arduino.analogWrite(led.digitalPort, value);
           else {
             this.arduino.digitalWrite(led.digitalPort, value);
           }
         }
       }
     } else {
-      System.out.println("warning: index " + index + " was used which is out of bounds for the ArrayList leds with size " + leds.size());
+      System.out.println("warning: index " + index
+          + " was used which is out of bounds for the ArrayList leds with size " + leds.size());
     }
   }
 
-
-
-
-
-
-
-
-
-
   //////////////////////////////////////////////////////////////
-  //                    PUSHBUTTON
+  // PUSHBUTTON
   //////////////////////////////////////////////////////////////
   public ArduinoControls addPushButton(int pinNumber, char keyboardKey, int signalPressed) {
     PushButton newPushButton = new PushButton(pinNumber, keyboardKey, signalPressed);
@@ -137,7 +124,8 @@ public class ArduinoControls {
     if (index >= 0 && index < this.pushbuttons.size()) {
       PushButton pushbutton = this.pushbuttons.get(index);
       if (this.arduino != null) {
-        if (this.arduino.digitalRead(pushbutton.digitalPort) == pushbutton.signalPressed && pushbutton.actionTaken == false) {
+        if (this.arduino.digitalRead(pushbutton.digitalPort) == pushbutton.signalPressed
+            && pushbutton.actionTaken == false) {
           pushbutton.actionTaken = true;
           pushbutton.pressed = true;
           pushbutton.pressedOnce = true;
@@ -151,22 +139,15 @@ public class ArduinoControls {
 
       return once ? pushbutton.pressedOnce : pushbutton.pressed;
     } else {
-      System.out.println("warning: index " + index + " was used which is out of bounds for the ArrayList pushbuttons with size " + pushbuttons.size() + ", returning false");
+      System.out.println(
+          "warning: index " + index + " was used which is out of bounds for the ArrayList pushbuttons with size "
+              + pushbuttons.size() + ", returning false");
       return false;
     }
   }
 
-
-
-
-
-
-
-
-
-
   //////////////////////////////////////////////////////////////
-  //                    POTENTIOMETER
+  // POTENTIOMETER
   //////////////////////////////////////////////////////////////
   public ArduinoControls addPotentiometer(int pinNumber, char keyboardKey) {
     return this.addPotentiometer(pinNumber, keyboardKey, 0, 1023);
@@ -177,8 +158,6 @@ public class ArduinoControls {
     this.potentiometers.add(newPotentiometer);
     return this;
   }
-
-
 
   public float getPotentiometer(int index) {
     return this.getPotentiometer(index, 1.0f);
@@ -191,30 +170,26 @@ public class ArduinoControls {
         this.potentiometers.get(index).value = this.arduino.analogRead(this.potentiometers.get(index).analogPort);
         returnValue = this.potentiometers.get(index).value;
 
-        //if we don't handle the raw input seperately (when calling getPotmeter(index, 1.0)), every additional call to getPotmeter removes the previous smoothness
+        // if we don't handle the raw input seperately (when calling getPotmeter(index,
+        // 1.0)), every additional call to getPotmeter removes the previous smoothness
         if (smoothness < 1.0) {
-          this.potentiometers.get(index).smoothValue = PApplet.lerp(this.potentiometers.get(index).smoothValue, this.potentiometers.get(index).value, smoothness);
+          this.potentiometers.get(index).smoothValue = PApplet.lerp(this.potentiometers.get(index).smoothValue,
+              this.potentiometers.get(index).value, smoothness);
           returnValue = this.potentiometers.get(index).smoothValue;
         }
       }
-      return PApplet.constrain(PApplet.map(returnValue, this.potentiometers.get(index).minValue, this.potentiometers.get(index).maxValue, 0, 1), 0, 1);
+      return PApplet.constrain(PApplet.map(returnValue, this.potentiometers.get(index).minValue,
+          this.potentiometers.get(index).maxValue, 0, 1), 0, 1);
     } else {
-      System.out.println("warning: index " + index + " was used which is out of bounds for the ArrayList potmeters with size " + potentiometers.size() + ", returning 0.0");
+      System.out
+          .println("warning: index " + index + " was used which is out of bounds for the ArrayList potmeters with size "
+              + potentiometers.size() + ", returning 0.0");
       return 0.0f;
     }
   }
 
-
-
-
-
-
-
-
-
-
   //////////////////////////////////////////////////////////////
-  //                    KEYBOARD + MOUSE
+  // KEYBOARD + MOUSE
   //////////////////////////////////////////////////////////////
   public ArduinoControls disableKeyPress() {
     this.enableKeyPress = false;
@@ -225,23 +200,29 @@ public class ArduinoControls {
   public void keyEvent(KeyEvent event) {
     if (this.enableKeyPress) {
       // Removed KeyEvent.TYPE because p2d or p3d don't register TYPE
-      if (event.getAction() == KeyEvent.PRESS) this.onKeyPress(event);
-      else if (event.getAction() == KeyEvent.RELEASE) this.onKeyRelease(event);
+      if (event.getAction() == KeyEvent.PRESS)
+        this.onKeyPress(event);
+      else if (event.getAction() == KeyEvent.RELEASE)
+        this.onKeyRelease(event);
     }
   }
 
   private void onKeyPress(KeyEvent event) {
-    //handle long press events, only works in default renderer, not in P2D or P3D
-    //if in P2D or P3D mode, quick-tap the q,w or e button to get the correct mouseX value
-    for (int i=0; i<this.potentiometers.size(); i++) {
+    // handle long press events, only works in default renderer, not in P2D or P3D
+    // if in P2D or P3D mode, quick-tap the q,w or e button to get the correct
+    // mouseX value
+    for (int i = 0; i < this.potentiometers.size(); i++) {
       Potentiometer potmeter = this.potentiometers.get(i);
-      if (event.getKey() == potmeter.keyboardKey ) potmeter.value = PApplet.constrain((int) PApplet.map(this.parent.mouseX, 0, this.parent.width, potmeter.minValue, potmeter.maxValue), potmeter.minValue, potmeter.maxValue);
+      if (event.getKey() == potmeter.keyboardKey)
+        potmeter.value = PApplet.constrain(
+            (int) PApplet.map(this.parent.mouseX, 0, this.parent.width, potmeter.minValue, potmeter.maxValue),
+            potmeter.minValue, potmeter.maxValue);
     }
 
-    for (int i=0; i<this.pushbuttons.size(); i++) {
+    for (int i = 0; i < this.pushbuttons.size(); i++) {
       PushButton pushbutton = this.pushbuttons.get(i);
 
-      if (event.getKey()== pushbutton.keyboardKey && pushbutton.actionTaken == false) {
+      if (event.getKey() == pushbutton.keyboardKey && pushbutton.actionTaken == false) {
         pushbutton.actionTaken = true;
         pushbutton.pressed = true;
         pushbutton.pressedOnce = true;
@@ -251,7 +232,8 @@ public class ArduinoControls {
   }
 
   private void onKeyRelease(KeyEvent event) {
-    // Reset the flag when the key is released, allowing for the action to be taken on the next key press
+    // Reset the flag when the key is released, allowing for the action to be taken
+    // on the next key press
     for (PushButton button : pushbuttons) {
       if (button.keyboardKey == event.getKey()) {
         button.actionTaken = false;
@@ -260,17 +242,8 @@ public class ArduinoControls {
     }
   }
 
-
-
-
-
-
-
-
-
-
   //////////////////////////////////////////////////////////////
-  //                    INFOPANEL
+  // INFOPANEL
   //////////////////////////////////////////////////////////////
   public ArduinoControls showInfoPanel() {
     this.infoPanel.show = true;
@@ -288,30 +261,42 @@ public class ArduinoControls {
   }
 
   public void draw() {
-    // make sure everything in the main sketch is wrapped inside pushMatrix and popMatrix, so the infopanel is always shown top left, even in 3D mode
-    // pushMatrix in registermethod pre()
-    // popMatrix in registermethod draw()
+    // make sure everything in the main sketch is wrapped inside pushMatrix and
+    // popMatrix, so the infopanel is always shown top left, even in 3D mode
+    // pushMatrix, pushStyle in registermethod pre()
+    // popMatrix, popStyle in registermethod draw()
     this.parent.popMatrix();
     this.parent.popStyle();
 
+    // workaround for long press in P3D
+    if (this.enableKeyPress && this.parent.keyPressed) {
+      this.onKeyPress(new KeyEvent(this.parent, 0, 0, 0, this.parent.key, this.parent.keyCode));
+    }
+
     if (this.infoPanel.show) {
       this.parent.hint(PConstants.DISABLE_DEPTH_TEST);
-      
+
       // put the parents imageMode temporarily to CORNER
-      this.parent.pushStyle(); 
+      this.parent.pushStyle();
       this.parent.imageMode(PConstants.CORNER);
       //
-      
+
       PGraphics overlay = this.infoPanel.overlay;
       overlay.beginDraw();
       overlay.background(0, 170);
       overlay.noStroke();
       overlay.fill(255);
       overlay.textSize(18);
-      for (int i=0; i<this.pushbuttons.size(); i++) overlay.text("getPushButton("+i+ "): " + this.getPushButton(i), 10, 25+i*20);
-      for (int i=0; i<this.pushbuttons.size(); i++) overlay.text("getPushButtonOnce("+i+ "): " + this.getPushButtonOnce(i), 10, 85+i*20);
-      for (int i=0; i<this.potentiometers.size(); i++) overlay.text("getPotentiometer("+i+ "): " + PApplet.nf(this.getPotentiometer(i), 0, 2) + " raw: " + this.potentiometers.get(i).value, 245, 25+i*20);
-      for (int i=0; i<this.potentiometers.size(); i++) overlay.text("getPotentiometer("+i+ ", 0.02): " + PApplet.nf(this.getPotentiometer(i, 0.02f), 0, 2) + " raw: " + this.potentiometers.get(i).value, 245, 85+i*20);
+      for (int i = 0; i < this.pushbuttons.size(); i++)
+        overlay.text("getPushButton(" + i + "): " + this.getPushButton(i), 10, 25 + i * 20);
+      for (int i = 0; i < this.pushbuttons.size(); i++)
+        overlay.text("getPushButtonOnce(" + i + "): " + this.getPushButtonOnce(i), 10, 85 + i * 20);
+      for (int i = 0; i < this.potentiometers.size(); i++)
+        overlay.text("getPotentiometer(" + i + "): " + PApplet.nf(this.getPotentiometer(i), 0, 2) + " raw: "
+            + this.potentiometers.get(i).value, 245, 25 + i * 20);
+      for (int i = 0; i < this.potentiometers.size(); i++)
+        overlay.text("getPotentiometer(" + i + ", 0.02): " + PApplet.nf(this.getPotentiometer(i, 0.02f), 0, 2)
+            + " raw: " + this.potentiometers.get(i).value, 245, 85 + i * 20);
       overlay.endDraw();
 
       this.parent.image(overlay, this.infoPanel.x, this.infoPanel.y); // Draw the overlay onto the main canvas
@@ -320,26 +305,21 @@ public class ArduinoControls {
     }
   }
 
-
-
-
-
-
-
-
-
-
   public void post() {
     // https://github.com/benfry/processing4/wiki/Library-Basics
-    // you cant draw in post() but its perfect for resetting the inputButtonsOnce array which needs to be done at the end of the draw cycle:
-    if (this.parent.frameCount != this.lastFrameCount) for (PushButton button : pushbuttons) button.pressedOnce = false;
+    // you cant draw in post() but its perfect for resetting the inputButtonsOnce
+    // array which needs to be done at the end of the draw cycle:
+    if (this.parent.frameCount != this.lastFrameCount)
+      for (PushButton button : pushbuttons)
+        button.pressedOnce = false;
   }
 
   public void pre() {
 
-    // make sure everything in the main sketch is wrapped inside pushMatrix and popMatrix, so the infopanel is always shown top left, even in 3D mode
-    // pushMatrix in registermethod pre()
-    // popMatrix in registermethod draw()
+    // make sure everything in the main sketch is wrapped inside pushMatrix and
+    // popMatrix, so the infopanel is always shown top left, even in 3D mode
+    // pushMatrix, pushStyle in registermethod pre()
+    // popMatrix, popStyle in registermethod draw()
     this.parent.pushMatrix();
     this.parent.pushStyle();
   }

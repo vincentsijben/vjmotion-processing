@@ -1,6 +1,6 @@
 # VJMotion library for Processing
 
-A Processing library that helps you create live, audio-reactive visuals with BPM-synced animations, Arduino controls, and real-time motion driven by music.
+A Processing library that helps you create live, audio-reactive visuals with BPM-synced animations, Arduino controls, and real-time motion driven by music. [Source code](https://github.com/vincentsijben/vjmotion-processing).
 
 ![example sketch output](./example-delay.gif)
 

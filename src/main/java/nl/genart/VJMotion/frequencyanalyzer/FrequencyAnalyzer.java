@@ -208,6 +208,86 @@ public class FrequencyAnalyzer {
   // return PApplet.constrain(PApplet.map(fft.getAvg(index), 0, max, 0, 1), 0, 1);
   // }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  private float[] rollingMaxLevels; // stores max per band
+  private float decayRate = 0.9995f; // slow decay for live input
+  
+/**
+ * Returns the normalized volume (0 to 1) of a logarithmic frequency band.
+ * This only works after calling fft.logAverages(22, 3), which splits the audible
+ * range into ~30 musically spaced bands.
+ *
+ * @param band the log band index (0 = low bass, up to ~29 = high treble)
+ * @return normalized volume between 0 and 1 for that band
+ */
+public float getVolume(int band) {
+  float currentValue = this.currentInputSource.getAvg(band);
+
+  // Initialize array for rolling max per log band
+  if (rollingMaxLevels == null || rollingMaxLevels.length != this.currentInputSource.avgSize()) {
+      rollingMaxLevels = new float[this.currentInputSource.avgSize()];
+      for (int i = 0; i < rollingMaxLevels.length; i++) {
+          rollingMaxLevels[i] = 1.0f;
+      }
+  }
+
+  // Rolling max with decay
+  if (currentValue > rollingMaxLevels[band]) {
+      rollingMaxLevels[band] = currentValue;
+  } else {
+      rollingMaxLevels[band] *= decayRate;
+  }
+
+  return PApplet.constrain(currentValue / rollingMaxLevels[band], 0, 1);
+}
+
+/**
+ * Returns the overall normalized volume (0 to 1) across all frequency bands.
+ * This gives you a single value representing the "energy" of the current sound.
+ *
+ * @return average normalized volume across all log frequency bands
+ */
+public float getVolume() {
+  float sum = 0;
+  int count = this.currentInputSource.avgSize();
+
+  for (int i = 0; i < count; i++) {
+      sum += getVolume(i); // uses smoothed, normalized log bands
+  }
+
+  return sum / count;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   public void resetMaxValue() {
     this.maxVal = 0.1f;
   }

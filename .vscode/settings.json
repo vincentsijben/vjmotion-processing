@@ -12,5 +12,6 @@
         "/Applications/Processing.app/Contents/Java/core/library/core.jar",
         "/Users/vincent.sijben/Docs/Processing/libraries/minim/library/minim.jar",
         "/Users/vincent.sijben/Docs/Processing/libraries/arduino/library/arduino.jar"
-    ]
+    ],
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml"
 }

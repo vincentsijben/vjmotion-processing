@@ -211,3 +211,5 @@ ln -s ../../../src/bpm/library/frequencyanalyzer/LineInInputSource.java ./exampl
 ln -s ../../../src/bpm/library/beatsperminute/BeatsPerMinute.java ./examples/All_combined/genart_heart/BeatsPerMinute.java
 ```
 
+## Check update contribution Manager
+[https://contributions.processing.org/contribs.txt](https://contributions.processing.org/contribs.txt)

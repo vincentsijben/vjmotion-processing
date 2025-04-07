@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"nl.genart.VJMotion"},{"l":"nl.genart.VJMotion.arduinocontrols"},{"l":"nl.genart.VJMotion.beatsperminute"},{"l":"nl.genart.VJMotion.frequencyanalyzer"}];updateSearchResults();
