@@ -1,6 +1,6 @@
 /**
  * delay
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Show 4 rows of 3 circles which animate every 3 beats, some with a delay. Each row uses one of the core timing functions.
  * 1st row: linear(), a linear progression value from 0 to 1 in 3 beats

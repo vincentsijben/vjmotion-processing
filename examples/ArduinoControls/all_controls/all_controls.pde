@@ -1,7 +1,7 @@
 /**
  * all controls
  * a demo sketch for testing 3 pushbuttons, 3 potentiometers and 3 LED's.
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * This example requires a connected Arduino board with:
  * 3 pushbuttons at digital ports 5,6 and 7

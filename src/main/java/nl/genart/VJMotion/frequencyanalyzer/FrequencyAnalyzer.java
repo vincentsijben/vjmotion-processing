@@ -51,6 +51,7 @@ public class FrequencyAnalyzer {
 
   private void welcome() {
     System.out.println("##library.name## ##library.prettyVersion## by ##author.url## v24");
+    System.out.println("http://nu.nl");
   }
 
   public FrequencyAnalyzer addMinim(Minim minim) {
@@ -322,7 +323,6 @@ public float getVolume() {
 
   private void onKeyPress(KeyEvent event) {
 
-    System.out.println(event.getKeyCode());
     if (!this.keyPressedActionTaken) {
       // use F1, F2, F3 etc keys to switch modes
       // eg. keyCode 97 is F1 in P3D or P2D mode

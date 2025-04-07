@@ -1,7 +1,7 @@
 /**
  * smoothing
  * a demo sketch showing how to use smoothed values for potentiometers. Also includes a pushbutton and an LED.
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * This example requires a connected Arduino board with:
  * a pushbutton at digital port 7

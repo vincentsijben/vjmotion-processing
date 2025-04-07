@@ -1,6 +1,6 @@
 /**
  * basic
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Animate a circle on each beat.
  */

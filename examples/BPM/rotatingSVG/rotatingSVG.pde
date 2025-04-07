@@ -1,6 +1,6 @@
 /**
  * rotating SVG
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Rotate and scale multiple shapes on specific beats.
  * The SVG is a basic shape created in vector software (Adobe Illustrator).

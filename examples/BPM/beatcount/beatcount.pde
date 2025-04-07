@@ -1,6 +1,6 @@
 /**
  * beatcount
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Show the (rounded) beatcount as text.
  * You can see how you could use the setSurfaceTitle() function as well.

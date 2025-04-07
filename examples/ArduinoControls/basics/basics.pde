@@ -1,7 +1,7 @@
 /**
  * basics
  * a demo sketch for using the ArduinoControls class. It uses the onboard LED (digital port 13).
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * This example requires a connected Arduino board with:
  * 1 LED at digital ports 13

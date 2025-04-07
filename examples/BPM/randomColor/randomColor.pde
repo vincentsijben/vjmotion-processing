@@ -1,6 +1,6 @@
 /**
  * randomColor
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Show a random background color by setting a new (random) seed every 4 beats.
  * Uses the boolean every_once[4] to turn true every 4 beats for the duration of 1 frame.

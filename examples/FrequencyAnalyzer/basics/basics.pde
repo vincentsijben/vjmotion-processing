@@ -14,7 +14,7 @@ void setup() {
 
   fa = new FrequencyAnalyzer(this)
     .addMinim(minim)
-    .setFile("https://github.com/vincentsijben/bpm-timings-for-processing/raw/main/assets/infraction_music_-_ritmo.mp3")
+    .setFile("https://github.com/vincentsijben/vjmotion-processing/raw/main/assets/infraction_music_-_ritmo.mp3")
     .setAudioInputMode(AudioInputMode.AUDIO_FILE)
     //.setAudioInputMode(AudioInputMode.AUDIO_FILE, 128) // also set bufferSize, needs to be power of 2. Lower amount means less audio resolution and decreasing delay
     //.setAudioInputMode(AudioInputMode.LINE_IN)

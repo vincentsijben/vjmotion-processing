@@ -1,6 +1,6 @@
 /**
  * randomGridSpots
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Shows a 9 by 9 grid of squares that rotates every 8 beats.
  * Every beat, 1 random square pulsates on the beat, starting each first beat with a red color.

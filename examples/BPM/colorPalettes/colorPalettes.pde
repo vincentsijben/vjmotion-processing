@@ -1,6 +1,6 @@
 /**
  * colorPalettes
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Given a number of https://coolors.co color palette URLs, generate a unique random color for
  * the current color palette each beat.

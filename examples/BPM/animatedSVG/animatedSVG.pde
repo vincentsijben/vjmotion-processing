@@ -1,6 +1,6 @@
 /**
  * animatedSVG
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Animate an SVG shape on specific beats. 
  * I've hidden both glasses and left foot shapes in the original SVG.

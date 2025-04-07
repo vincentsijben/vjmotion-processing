@@ -1,6 +1,6 @@
 /**
  * Attack Decay Sustain Release
- * https://github.com/vincentsijben/bpm-timings-for-processing
+ * https://github.com/vincentsijben/vjmotion-processing
  *
  * Use the adsr() function to have more control over the (linear) progression in 1 beat. You can control:
  * - attack duration  (between 0 and 1)
