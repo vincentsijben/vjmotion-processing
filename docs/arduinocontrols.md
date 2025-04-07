@@ -10,7 +10,7 @@ Students build their own Arduino remote controller with (at least) 3 potentiomet
  - fallback to keyboard and mouse controls when not using arduino
  - only write LED once instead of continuously, preventing flickering
  
-## Usage
+## Basic usage
 Be sure to check the console to find the correct serial port. In this example port 3 (index 2) is used.
 ```
 // Import the library to your sketch
@@ -49,9 +49,48 @@ void draw() {
 }
 ```
 
+## Setup
+You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):
 
+* `.addArduino(arduino)` mandatory to add the global arduino object to the class. If you omit it, the keypresses associated with all controls will be enabled.
+* `.addLED(9)` to add an LED to the class at digital port 9.
+* `.addLED(10, LEDMode.PWM)` to add an LED to the class at digital port 10 as a PWM connected LED. The LEDMode argument is optional (default is `LEDMode.DIGITAL`).
+* `.addPushButton(7, '1', Arduino.LOW)` to add a pushbutton to the class at digital port 7, that is controllable with the keyboard key '1' when not connected and has a value of Arduino.LOW when pressed. All three arguments are mandatory.
+* `.addPotentiometer(0, 'q')` to add a potentiometer to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'q'. Both arguments are mandatory.
+* `.addLDR(0, 'w')` to add a LDR sensor to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'w'. Both arguments are mandatory.
+* `.showInfoPanel()` to show the infopanel.
+* `.setInfoPanelY(n)` to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
+* `.setInfoPanelKey('u')` to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
+* `.disableKeyPress()` to disable listening for keypresses. If you don't disable keypresses, then the keys you provided as arguments for pushbuttons and potentiometers will work
+
+
+## Functions
 The ArduinoControls class provides the following main functions.
-Note that these functions are index-based. So if you added 5 potentiometers in the setup(), the indices would be: 0, 1, 2, 3, 4 and 5. If you would like to get the value of the first added potentiometer, use `ac.getPotentiometer(0)`.
+
+Note that these functions are (zero-)index based. So if you added 3 potentiometers:
+```
+void setup(){
+  ...
+  ac = new ArduinoControls(this)
+    .addArduino(arduino)
+    .addPotentiometer(0) //port A0
+    .addPotentiometer(2) //port A2
+    .addPotentiometer(4) //port A4
+    ;
+  ...
+}
+```
+the indices would be: 0, 1 and 2. If you would like to get the value of the third added potentiometer, you would use 
+```
+void draw(){
+  ...
+  if (ac.getPotentiometer(2) > 0.5) {
+    //third potentiometer is turned half way
+  }
+  ...
+}
+```
+
 
 * LED's:
 
@@ -68,18 +107,6 @@ Note that these functions are index-based. So if you added 5 potentiometers in t
 
     * `getPotentiometer(0)` functon that returns the raw normalized value from potentiometer with index 0, without any smoothing
     * `getPotentiometer(0, 0.5)` functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.
-
-You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):
-
-* `.addArduino(arduino)` mandatory to add the global arduino object to the class. If you omit it, the keypresses associated with all controls will be enabled.
-* `.addLED(9)` to add an LED to the class at digital port 9.
-* `.addLED(10, LEDMode.PWM)` to add an LED to the class at digital port 10 as a PWM connected LED. The LEDMode argument is optional (default is `LEDMode.DIGITAL`).
-* `.addPushButton(7, '1', Arduino.LOW)` to add a pushbutton to the class at digital port 7, that is controllable with the keyboard key '1' when not connected and has a value of Arduino.LOW when pressed. All three arguments are mandatory.
-* `.addPotentiometer(0, 'q')` to add a potentiometer to the class at analog port 0, that is controllable with the mouseX position while pressing the keyboard key 'q'. Both arguments are mandatory.
-* `.showInfoPanel()` to show the infopanel.
-* `.setInfoPanelY(n)` to offset the starting y-position of the infopanel by n pixels. Useful for when you have multiple infopanels to get them all lined up.
-* `.setInfoPanelKey('u')` to change the hotkey to toggle the infopanel. Useful for when you have multiple infopanels. Defaults to 'i'.
-* `.disableKeyPress()` to disable listening for keypresses. If you don't disable keypresses, then the keys you provided as arguments for pushbuttons and potentiometers will work
 
 
 ## Examples

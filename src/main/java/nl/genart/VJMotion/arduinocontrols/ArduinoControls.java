@@ -28,6 +28,7 @@ public class ArduinoControls {
   private boolean enableKeyPress;
   private ArrayList<PushButton> pushbuttons;
   private ArrayList<Potentiometer> potentiometers;
+  private ArrayList<LDR> ldrs;
   private ArrayList<LED> leds;
   private int lastFrameCount;
 
@@ -35,6 +36,7 @@ public class ArduinoControls {
     this.parent = parent;
     this.pushbuttons = new ArrayList<PushButton>();
     this.potentiometers = new ArrayList<Potentiometer>();
+    this.ldrs = new ArrayList<LDR>();
     this.leds = new ArrayList<LED>();
     this.infoPanel = new InfoPanel(parent);
     this.enableKeyPress = true;
@@ -143,6 +145,43 @@ public class ArduinoControls {
           "warning: index " + index + " was used which is out of bounds for the ArrayList pushbuttons with size "
               + pushbuttons.size() + ", returning false");
       return false;
+    }
+  }
+
+  //////////////////////////////////////////////////////////////
+  // LDR sensor
+  //////////////////////////////////////////////////////////////
+  public ArduinoControls addLDR(int pinNumber, char keyboardKey, int minValue, int maxValue) {
+    LDR newLDR = new LDR(pinNumber, keyboardKey, minValue, maxValue);
+    this.ldrs.add(newLDR);
+    return this;
+  }
+  public float getLDR(int index) {
+    return this.getLDR(index, 1.0f);
+  }
+
+  public float getLDR(int index, float smoothness) {
+    if (index >= 0 && index < this.ldrs.size()) {
+      float returnValue = this.ldrs.get(index).value;
+      if (this.arduino != null) {
+        this.ldrs.get(index).value = this.arduino.analogRead(this.ldrs.get(index).analogPort);
+        returnValue = this.ldrs.get(index).value;
+
+        // if we don't handle the raw input seperately (when calling getLDR(index,
+        // 1.0)), every additional call to getLDR removes the previous smoothness
+        if (smoothness < 1.0) {
+          this.ldrs.get(index).smoothValue = PApplet.lerp(this.ldrs.get(index).smoothValue,
+              this.ldrs.get(index).value, smoothness);
+          returnValue = this.ldrs.get(index).smoothValue;
+        }
+      }
+      return PApplet.constrain(PApplet.map(returnValue, this.ldrs.get(index).minValue,
+          this.ldrs.get(index).maxValue, 0, 1), 0, 1);
+    } else {
+      System.out
+          .println("warning: index " + index + " was used which is out of bounds for the ArrayList ldrs with size "
+              + ldrs.size() + ", returning 0.0");
+      return 0.0f;
     }
   }
 
