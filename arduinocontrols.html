@@ -589,24 +589,28 @@ void draw() {
 <p>The ArduinoControls class provides the following main functions.
 Note that these functions are index-based. So if you added 5 potentiometers in the setup(), the indices would be: 0, 1, 2, 3, 4 and 5. If you would like to get the value of the first added potentiometer, use <code>ac.getPotentiometer(0)</code>.</p>
 <ul>
-<li>LED's:</li>
+<li>
+<p>LED's:</p>
+<ul>
 <li><code>setLEDToOn(0)</code> function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses <code>255</code>, else <code>Arduino.High</code>.</li>
 <li><code>setLEDToOff(2)</code> function that turns off the LED with index 2.</li>
-<li>
-<p><code>setLED(0,200)</code> function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.</p>
+<li><code>setLED(0,200)</code> function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.</li>
+</ul>
 </li>
 <li>
 <p>Pushbuttons:</p>
-</li>
+<ul>
 <li><code>getPushButton(0)</code> function that returns true while the pushbutton with index 0 is being pushed.</li>
-<li>
-<p><code>getPushButtonOnce(0)</code> function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.</p>
+<li><code>getPushButtonOnce(0)</code> function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.</li>
+</ul>
 </li>
 <li>
 <p>Potentiometers:</p>
-</li>
+<ul>
 <li><code>getPotentiometer(0)</code> functon that returns the raw normalized value from potentiometer with index 0, without any smoothing</li>
 <li><code>getPotentiometer(0, 0.5)</code> functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.</li>
+</ul>
+</li>
 </ul>
 <p>You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):</p>
 <ul>
