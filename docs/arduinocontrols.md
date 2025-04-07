@@ -55,19 +55,19 @@ Note that these functions are index-based. So if you added 5 potentiometers in t
 
 * LED's:
 
-  * `setLEDToOn(0)` function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses `255`, else `Arduino.High`.
-  * `setLEDToOff(2)` function that turns off the LED with index 2.
-  * `setLED(0,200)` function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.
+    * `setLEDToOn(0)` function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses `255`, else `Arduino.High`.
+    * `setLEDToOff(2)` function that turns off the LED with index 2.
+    * `setLED(0,200)` function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.
 
 * Pushbuttons:
 
-  * `getPushButton(0)` function that returns true while the pushbutton with index 0 is being pushed.
-  * `getPushButtonOnce(0)` function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.
+    * `getPushButton(0)` function that returns true while the pushbutton with index 0 is being pushed.
+    * `getPushButtonOnce(0)` function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.
 
 * Potentiometers:
 
-  * `getPotentiometer(0)` functon that returns the raw normalized value from potentiometer with index 0, without any smoothing
-  * `getPotentiometer(0, 0.5)` functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.
+    * `getPotentiometer(0)` functon that returns the raw normalized value from potentiometer with index 0, without any smoothing
+    * `getPotentiometer(0, 0.5)` functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.
 
 You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):
 
