@@ -1,20 +1,20 @@
 # ArduinoControls
 This ArduinoControls class is used at the Maastricht Institute of Arts exposition during the "Generative Art" semester.
-Students build their own Arduino remote controller with 3 potentiometers, 3 pushbuttons and 3 LEDs.
+Students build their own Arduino remote controller with (at least) 3 potentiometers, 3 pushbuttons and 3 LEDs.
 
  This library simplifies the use for these controls. It adds functionality like:
 
- - executing single commands when longpressing pushbuttons;
+ - executing single commands when (long)pressing pushbuttons;
  - multiple pushbuttons being pressed
- - smooth analog potmeter values, reducing 'jumping' values
- - fallback to keyboard and mouse when not using arduino
+ - smooth analog sensor values, reducing 'jumping' values
+ - fallback to keyboard and mouse controls when not using arduino
  - only write LED once instead of continuously, preventing flickering
  
 ## Usage
 Be sure to check the console to find the correct serial port. In this example port 3 (index 2) is used.
 ```
 // Import the library to your sketch
-import bpm.library.arduinocontrols.*;
+import nl.genart.VJMotion.arduinocontrols.*;
 
 // Import the arduino and serial libraries
 import processing.serial.*;
@@ -50,15 +50,19 @@ void draw() {
 ```
 
 
-The ArduinoControls class provides the following main functions:
+The ArduinoControls class provides the following main functions.
+Note that these functions are index-based. So if you added 5 potentiometers in the setup(), the indices would be: 0, 1, 2, 3, 4 and 5. If you would like to get the value of the first added potentiometer, use `ac.getPotentiometer(0)`.
 
-* `setLEDToOn(0)` function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses `255`, else `Arduino.High`.
-* `setLEDToOff(2)` function that turns off the LED with index 2.
-* `setLED(0,200)` function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.
-* `getPushButton(0)` function that returns true while the pushbutton with index 0 is being pushed.
-* `getPushButtonOnce(0)` function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.
-* `getPotentiometer(0)` functon that returns the raw normalized value from potentiometer with index 0, without any smoothing
-* `getPotentiometer(0, 0.5)` functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.
+* LED's:
+  * `setLEDToOn(0)` function that turns on the LED with index 0. If it's an LED that was set up with PWM, it uses `255`, else `Arduino.High`.
+  * `setLEDToOff(2)` function that turns off the LED with index 2.
+  * `setLED(0,200)` function that sets the value of LED with index 0 to 200. All values set to LEDs are only set once in draw() to prevent flickering.
+* Pushbuttons:
+  * `getPushButton(0)` function that returns true while the pushbutton with index 0 is being pushed.
+  * `getPushButtonOnce(0)` function that returns true if the pushbutton with index 0 was pushed. Only returns true for the duration of 1 frame.
+* Potentiometers:
+  * `getPotentiometer(0)` functon that returns the raw normalized value from potentiometer with index 0, without any smoothing
+  * `getPotentiometer(0, 0.5)` functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.
 
 You can tweak the behaviour of this library with the following functions (you can also chain them when initializing your arduinocontrols object for clarity):
 
