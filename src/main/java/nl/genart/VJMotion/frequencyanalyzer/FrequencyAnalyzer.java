@@ -50,8 +50,8 @@ public class FrequencyAnalyzer {
   }
 
   private void welcome() {
-    System.out.println("##library.name## ##library.prettyVersion## by ##author.url## v24");
-    System.out.println("http://nu.nl");
+    // System.out.println("##library.name## ##library.prettyVersion## by ##author.url## v24");
+    
   }
 
   public FrequencyAnalyzer addMinim(Minim minim) {

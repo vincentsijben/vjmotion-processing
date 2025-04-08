@@ -78,7 +78,7 @@ public class BeatsPerMinute {
   }
 
   private void welcome() {
-    System.out.println("##library.name## ##library.prettyVersion## by ##author.url## v23"); 
+    // System.out.println("##library.name## ##library.prettyVersion## by ##author.url## v23"); 
   }
 
   public BeatsPerMinute setBPM(int bpm) {

@@ -108,6 +108,11 @@ void draw(){
     * `getPotentiometer(0)` functon that returns the raw normalized value from potentiometer with index 0, without any smoothing
     * `getPotentiometer(0, 0.5)` functon that returns the smoothed normalized value from potentiometer with index 0. Smoothness is a value between 0 and 1 which adds a little delay.
 
+* LDR sensors:
+
+    * `getLDR(0)` functon that returns the raw normalized value from the LDR sensor with index 0, without any smoothing
+    * `getLDR(0, 0.5)` functon that returns the smoothed normalized value from the LDR sensor with index 0. Smoothness is a value between 0 and 1 which adds a little delay.
+
 
 ## Examples
 You can find all these examples in `Processing -> File - Examples - Contributed Libraries - VJMotion - ArduinoControls`.
