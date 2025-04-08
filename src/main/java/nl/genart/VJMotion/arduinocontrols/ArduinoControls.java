@@ -30,6 +30,7 @@ public class ArduinoControls {
   private ArrayList<LDR> ldrs;
   private ArrayList<LED> leds;
   private int lastFrameCount;
+  
 
   public ArduinoControls(PApplet parent) {
     this.parent = parent;
@@ -50,6 +51,7 @@ public class ArduinoControls {
 
   public ArduinoControls addArduino(Arduino arduino) {
     this.arduino = arduino;
+    this.enableKeyPress = false;
     return this;
   }
 
@@ -347,9 +349,14 @@ public class ArduinoControls {
     // https://github.com/benfry/processing4/wiki/Library-Basics
     // you cant draw in post() but its perfect for resetting the inputButtonsOnce
     // array which needs to be done at the end of the draw cycle:
-    if (this.parent.frameCount != this.lastFrameCount)
-      for (PushButton button : pushbuttons)
-        button.pressedOnce = false;
+
+    if (this.enableKeyPress) {
+      // if no Arduino is connected, and keyPresses are used, check if the frame has changed
+      if (this.parent.frameCount != this.lastFrameCount)
+        for (PushButton button : pushbuttons) button.pressedOnce = false;
+    } else {
+      for (PushButton button : pushbuttons) button.pressedOnce = false;
+    }
   }
 
   public void pre() {
