@@ -21,6 +21,7 @@ ArduinoControls ac;
 BeatsPerMinute bpm;
 Minim minim;
 FrequencyAnalyzer fa;
+int currentScene = 1;
 
 void setup() {
 
@@ -66,5 +67,41 @@ void setup() {
 void draw() {
   background(50);
 
+  if (currentScene == 1) {
+    showScene1();
+  }
+  if (currentScene == 2) {
+    showScene2();
+  }
+  if (currentScene == 3) {
+    showScene3();
+  }
+
+  doArduinoStuff();
   
+}
+
+void showScene1() {
+  background(100);
+  // draw some stuff here
+}
+
+void showScene2() {
+  background(150);
+  // draw some other stuff here
+}
+
+void showScene3() {
+  background(200);
+  // draw some other stuff here
+}
+
+void doArduinoStuff() {
+  //when the push button is pressed, change the scene
+  if (ac.getPushButtonOnce(0)) {
+    currentScene++;
+    if (currentScene > 3) {
+      currentScene = 1;
+    }
+  }
 }
