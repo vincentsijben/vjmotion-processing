@@ -15,7 +15,9 @@ package nl.genart.VJMotion.arduinocontrols;
 import cc.arduino.*;
 import java.util.ArrayList;
 import nl.genart.VJMotion.InfoPanel;
-import processing.core.*;
+import processing.core.PApplet;
+import processing.core.PConstants;
+import processing.core.PGraphics;
 import processing.event.KeyEvent;
 
 public class ArduinoControls {
@@ -51,7 +53,7 @@ public class ArduinoControls {
 
   public ArduinoControls addArduino(Arduino arduino) {
     this.arduino = arduino;
-    this.enableKeyPress = false;
+    if (this.arduino != null) this.enableKeyPress = false;
     return this;
   }
 
