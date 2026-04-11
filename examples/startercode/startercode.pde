@@ -9,7 +9,9 @@
  **/
 
 void setup() {
-  size(900, 500);
+  size(1920, 1080);
+  // fullScreen() // use fullScreen() instead of size() when performing!
+  
   VJ_Motion_setup();
 }
 

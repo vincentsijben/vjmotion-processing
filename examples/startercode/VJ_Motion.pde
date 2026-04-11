@@ -14,6 +14,9 @@ FrequencyAnalyzer fa;
 int currentScene = 1;
 
 void VJ_Motion_setup() {
+  
+  //use this to retrieve the correct port index for your Arduino
+  //println(Arduino.list());
   //arduino = new Arduino(this, Arduino.list()[2], 57600);
   //arduino.pinMode(5, Arduino.INPUT_PULLUP);
   //arduino.pinMode(6, Arduino.INPUT_PULLUP);
@@ -21,8 +24,7 @@ void VJ_Motion_setup() {
   //arduino.pinMode(9, Arduino.OUTPUT);
   //arduino.pinMode(10, Arduino.OUTPUT);
   //arduino.pinMode(11, Arduino.OUTPUT);
-  minim = new Minim(this);
-
+  
   ac = new ArduinoControls(this)
     .addArduino(arduino)
     .addLED(9, LEDMode.PWM)
@@ -36,10 +38,13 @@ void VJ_Motion_setup() {
     .addPotentiometer(2, 'e')
     //.setInfoPanelKey('i')
     ;
+    
   bpm = new BeatsPerMinute(this)
     .setBPM(60)
     //.setInfoPanelKey('o')
     ;
+    
+  minim = new Minim(this);
   fa = new FrequencyAnalyzer(this)
     .addMinim(minim)
     .setAudioInputMode(AudioInputMode.LINE_IN)
