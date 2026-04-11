@@ -14,6 +14,7 @@ package nl.genart.VJMotion.arduinocontrols;
 
 import cc.arduino.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import nl.genart.VJMotion.InfoPanel;
 import processing.core.PApplet;
 import processing.core.PConstants;
@@ -32,7 +33,7 @@ public class ArduinoControls {
   private ArrayList<LDR> ldrs;
   private ArrayList<LED> leds;
   private int lastFrameCount;
-  
+  private HashSet<Character> activeKeys;
 
   public ArduinoControls(PApplet parent) {
     this.parent = parent;
@@ -45,7 +46,7 @@ public class ArduinoControls {
     this.infoPanel.y = 0;
     this.enableKeyPress = true;
     this.lastFrameCount = -1;
-
+    this.activeKeys = new HashSet<Character>();
 
     // https://github.com/benfry/processing4/wiki/Library-Basics
     parent.registerMethod("draw", this);
@@ -256,18 +257,22 @@ public class ArduinoControls {
     // handle long press events, only works in default renderer, not in P2D or P3D
     // if in P2D or P3D mode, quick-tap the q,w or e button to get the correct
     // mouseX value
+    char key = event.getKey();
+    this.activeKeys.add(key);
+
     for (int i = 0; i < this.potentiometers.size(); i++) {
       Potentiometer potmeter = this.potentiometers.get(i);
-      if (event.getKey() == potmeter.keyboardKey)
+      if (key == potmeter.keyboardKey) {
         potmeter.value = PApplet.constrain(
             (int) PApplet.map(this.parent.mouseX, 0, this.parent.width, potmeter.minValue, potmeter.maxValue),
             potmeter.minValue, potmeter.maxValue);
+      }
     }
 
     for (int i = 0; i < this.pushbuttons.size(); i++) {
       PushButton pushbutton = this.pushbuttons.get(i);
 
-      if (event.getKey() == pushbutton.keyboardKey && pushbutton.actionTaken == false) {
+      if (key == pushbutton.keyboardKey && pushbutton.actionTaken == false) {
         pushbutton.actionTaken = true;
         pushbutton.pressed = true;
         pushbutton.pressedOnce = true;
@@ -279,8 +284,11 @@ public class ArduinoControls {
   private void onKeyRelease(KeyEvent event) {
     // Reset the flag when the key is released, allowing for the action to be taken
     // on the next key press
+    char key = event.getKey();
+    this.activeKeys.remove(key);
+
     for (PushButton button : pushbuttons) {
-      if (button.keyboardKey == event.getKey()) {
+      if (button.keyboardKey == key) {
         button.actionTaken = false;
         button.pressed = false;
       }
@@ -314,8 +322,34 @@ public class ArduinoControls {
     this.parent.popStyle();
 
     // workaround for long press in P3D
-    if (this.enableKeyPress && this.parent.keyPressed) {
-      this.onKeyPress(new KeyEvent(this.parent, 0, 0, 0, this.parent.key, this.parent.keyCode));
+    // if (this.enableKeyPress && this.parent.keyPressed) {
+    //   this.onKeyPress(new KeyEvent(this.parent, 0, 0, 0, this.parent.key, this.parent.keyCode));
+    // }
+
+    if (this.enableKeyPress) {
+      for (int i = 0; i < this.potentiometers.size(); i++) {
+        Potentiometer potmeter = this.potentiometers.get(i);
+        if (this.activeKeys.contains(potmeter.keyboardKey)) {
+          potmeter.value = PApplet.constrain(
+              (int) PApplet.map(this.parent.mouseX, 0, this.parent.width, potmeter.minValue, potmeter.maxValue),
+              potmeter.minValue, potmeter.maxValue);
+        }
+      }
+
+      for (PushButton button : this.pushbuttons) {
+        if (this.activeKeys.contains(button.keyboardKey)) {
+          button.pressed = true;
+
+          if (!button.actionTaken) {
+            button.actionTaken = true;
+            button.pressedOnce = true;
+            this.lastFrameCount = this.parent.frameCount;
+          }
+        } else {
+          button.pressed = false;
+          button.actionTaken = false;
+        }
+      }
     }
 
     if (this.infoPanel.show) {
