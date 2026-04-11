@@ -39,7 +39,23 @@ class AudioFileInputSource implements AudioInputSource {
     public void start() {
     if (player != null) {
       player.play();
-      //player.loop(); // Loop the audio if needed
+    }
+  }
+
+  @Override
+  public void pause() {
+  if (player != null) {
+    player.pause();
+  }
+}
+
+  @Override
+    public void loop() {
+      if (player != null) {
+        if (!player.isPlaying() && player.position() >= player.length()) {
+            player.rewind();
+            player.play();
+        }
     }
   }
 
@@ -47,6 +63,7 @@ class AudioFileInputSource implements AudioInputSource {
     public void stop() {
     if (player != null) {
       player.pause(); // Pause playback
+      player.rewind();
     }
   }
 

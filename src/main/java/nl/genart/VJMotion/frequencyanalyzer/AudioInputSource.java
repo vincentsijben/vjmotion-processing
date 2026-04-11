@@ -9,6 +9,12 @@ public interface AudioInputSource {
     // Start processing the audio input
     void start();
 
+    // Start processing the audio input and loop
+    void loop();
+
+    // Stop processing the audio input
+    void pause();
+
     // Stop processing the audio input
     void stop();
 

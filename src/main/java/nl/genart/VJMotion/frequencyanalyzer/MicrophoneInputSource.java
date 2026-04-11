@@ -39,6 +39,17 @@ class MicrophoneInputSource implements AudioInputSource {
   }
 
   @Override
+  public void pause() {
+  // The getLineIn method automatically starts capturing, so no action is needed here.
+}
+
+  @Override
+  public void loop() {
+  // Line-in starts automatically with getLineIn, but you might want to add logic here if needed
+  // there is no 'loop' functionality 
+  }
+
+  @Override
     public void stop() {
     // This method would stop processing or capturing audio, if necessary.
   }

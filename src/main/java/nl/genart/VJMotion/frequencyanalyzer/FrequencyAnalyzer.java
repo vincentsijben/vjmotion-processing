@@ -32,8 +32,10 @@ public class FrequencyAnalyzer {
   public FrequencyAnalyzer(PApplet parent) {
     this.welcome();
     this.parent = parent;
-    this.infoPanel = new InfoPanel(parent);
-
+    // this.infoPanel = new InfoPanel(parent);
+    this.infoPanel = new InfoPanel(parent, this.parent.width, 150);
+    this.infoPanel.x = 0;
+    this.infoPanel.y = this.parent.height-150;
     this.enableKeyPress = true;
     this.keyPressedActionTaken = false;
     this.durationResetMaxValue = 0.0f;
@@ -47,6 +49,7 @@ public class FrequencyAnalyzer {
     parent.registerMethod("post", this);
     parent.registerMethod("keyEvent", this);
     parent.registerMethod("dispose", this);
+    parent.registerMethod("mouseEvent", this);
   }
 
   private void welcome() {
@@ -89,9 +92,11 @@ public class FrequencyAnalyzer {
   }
 
   public FrequencyAnalyzer setAudioInputMode(AudioInputMode newMode, int size) {
+    //System.out.println("Setting audio input mode: " + newMode);
     if (newMode == this.currentInputMode)
       return this;
     if (currentInputSource != null) {
+     // System.out.println("Closing current input source");
       currentInputSource.close();
       currentInputSource = null;
     }
@@ -99,12 +104,15 @@ public class FrequencyAnalyzer {
     // Initialize the new input source based on the selected mode
     switch (newMode) {
       case MICROPHONE:
+      //System.out.println("Initializing MicrophoneInputSource");
         currentInputSource = new MicrophoneInputSource(minim, size); // Assuming a MicrophoneSource class exists
         break;
       case LINE_IN:
+      //System.out.println("Initializing LineInInputSource");
         currentInputSource = new LineInInputSource(minim, size);
         break;
       case AUDIO_FILE:
+      //System.out.println("Initializing AudioFileInputSource with file: " + this.file);
         if (this.file == null)
           System.out.println("no audio file was set");
 
@@ -120,8 +128,9 @@ public class FrequencyAnalyzer {
 
     // Start the new input source
     if (currentInputSource != null) {
+      //System.out.println("Initializing and looping current input source");
       currentInputSource.init(); // Initialize the new source
-      currentInputSource.start();
+      currentInputSource.loop();
     }
 
     // Update the current mode
@@ -450,16 +459,95 @@ public float getVolume() {
       // overlay.width-120, 30);
       else
         overlay.text("monitoring: " + (currentInputSource.isMonitoring() ? "on" : "off"), overlay.width - 120, 30);
+      
+      
+      
+      
+      
+      
+      
+      
+      // Draw buttons
+      int buttonWidth = 80;
+      int buttonHeight = 30;
+      int buttonY = overlay.height - 50;
+
+      // Start button
+      overlay.fill(0, 255, 0);
+      overlay.rect(20, buttonY, buttonWidth, buttonHeight);
+      overlay.fill(255);
+      overlay.textAlign(PApplet.CENTER, PApplet.CENTER);
+      overlay.text("Start", 20 + buttonWidth / 2, buttonY + buttonHeight / 2);
+
+      // Pause button
+      overlay.fill(255, 255, 0);
+      overlay.rect(120, buttonY, buttonWidth, buttonHeight);
+      overlay.fill(0);
+      overlay.text("Pause", 120 + buttonWidth / 2, buttonY + buttonHeight / 2);
+
+      // Stop button
+      overlay.fill(255, 0, 0);
+      overlay.rect(220, buttonY, buttonWidth, buttonHeight);
+      overlay.fill(255);
+      overlay.text("Stop", 220 + buttonWidth / 2, buttonY + buttonHeight / 2);
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       overlay.endDraw();
-      this.parent.image(overlay, this.infoPanel.x, this.infoPanel.y, this.infoPanel.w, this.infoPanel.h); // Draw the
-                                                                                                          // overlay
-                                                                                                          // onto the
-                                                                                                          // main canvas
+      this.parent.image(overlay, this.infoPanel.x, this.infoPanel.y);
 
       this.parent.popStyle();
       this.parent.hint(PConstants.ENABLE_DEPTH_TEST);
     }
   }
+
+  public void mouseEvent(processing.event.MouseEvent event) {
+    if (event.getAction() == processing.event.MouseEvent.PRESS) {
+        //System.out.println("Mouse pressed");
+        if (this.infoPanel.show) {
+          
+            int mouseX = this.parent.mouseX - this.infoPanel.x;
+            int mouseY = this.parent.mouseY - this.infoPanel.y;
+            
+            int buttonWidth = 80;
+            int buttonHeight = 30;
+            int buttonY = this.infoPanel.h - 50;
+            //System.out.println("using: " + mouseX + ", " + mouseY + ": buttonY" + buttonY + ", this.infoPanel.y: " + this.infoPanel.y);
+            // Check if Start button is clicked
+            if (mouseX >= 20 && mouseX <= 20 + buttonWidth && mouseY >= buttonY && mouseY <= buttonY + buttonHeight) {
+              System.out.println("eerste vakje");
+                if (currentInputSource != null) {
+                  currentInputSource.start();
+                }
+            }
+
+            // Check if Pause button is clicked
+            if (mouseX >= 120 && mouseX <= 120 + buttonWidth && mouseY >= buttonY && mouseY <= buttonY + buttonHeight) {
+              System.out.println("tweede vakje");
+                if (currentInputSource != null) {
+                  currentInputSource.pause();
+                }
+            }
+
+            // Check if Stop button is clicked
+            if (mouseX >= 220 && mouseX <= 220 + buttonWidth && mouseY >= buttonY && mouseY <= buttonY + buttonHeight) {
+              System.out.println("derde vakje");
+                if (currentInputSource != null) {
+                  currentInputSource.stop();
+                }
+            }
+        }
+    }
+}
+
+ 
 
   public void post() {
     // https://github.com/benfry/processing4/wiki/Library-Basics

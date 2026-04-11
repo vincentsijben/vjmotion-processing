@@ -40,6 +40,18 @@ class LineInInputSource implements AudioInputSource {
   }
 
   @Override
+    public void pause() {
+    // Line-in starts automatically with getLineIn, but you might want to add logic here if needed
+    //this.lineIn.enableMonitoring();
+  }
+
+  @Override
+    public void loop() {
+    // Line-in starts automatically with getLineIn, but you might want to add logic here if needed
+    // there is no 'loop' functionality 
+  }
+
+  @Override
     public void stop() {
   }
 

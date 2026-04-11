@@ -40,9 +40,12 @@ public class ArduinoControls {
     this.potentiometers = new ArrayList<Potentiometer>();
     this.ldrs = new ArrayList<LDR>();
     this.leds = new ArrayList<LED>();
-    this.infoPanel = new InfoPanel(parent);
+    this.infoPanel = new InfoPanel(parent, 350, this.parent.height);
+    this.infoPanel.x = this.parent.width-350;
+    this.infoPanel.y = 0;
     this.enableKeyPress = true;
     this.lastFrameCount = -1;
+
 
     // https://github.com/benfry/processing4/wiki/Library-Basics
     parent.registerMethod("draw", this);
@@ -335,10 +338,10 @@ public class ArduinoControls {
         overlay.text("getPushButtonOnce(" + i + "): " + this.getPushButtonOnce(i), 10, 85 + i * 20);
       for (int i = 0; i < this.potentiometers.size(); i++)
         overlay.text("getPotentiometer(" + i + "): " + PApplet.nf(this.getPotentiometer(i), 0, 2) + " raw: "
-            + this.potentiometers.get(i).value, 245, 25 + i * 20);
+            + this.potentiometers.get(i).value, 10, 160 + i * 20);
       for (int i = 0; i < this.potentiometers.size(); i++)
         overlay.text("getPotentiometer(" + i + ", 0.02): " + PApplet.nf(this.getPotentiometer(i, 0.02f), 0, 2)
-            + " raw: " + this.potentiometers.get(i).value, 245, 85 + i * 20);
+            + " raw: " + this.potentiometers.get(i).value, 10, 220 + i * 20);
       overlay.endDraw();
 
       this.parent.image(overlay, this.infoPanel.x, this.infoPanel.y); // Draw the overlay onto the main canvas
